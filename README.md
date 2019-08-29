@@ -1,2 +1,2 @@
-# FerrerGuinyardRashimi-ActivityTracker
+# FerrerGuinyardRahimi-ActivityTracker
 CSCI360 Final Project
