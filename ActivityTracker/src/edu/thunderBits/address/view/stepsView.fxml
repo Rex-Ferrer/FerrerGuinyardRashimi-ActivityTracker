@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.thunderBits.address.view.stepsViewController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="33.0" layoutY="53.0" text="12:00" textFill="#fffdfd">
+            <Arc fill="#a9c4eb04" layoutX="102.0" layoutY="93.0" length="360.0" radiusX="62.0" radiusY="62.0" startAngle="45.0" stroke="#e6e6e6" strokeType="INSIDE" strokeWidth="20.0" />
+            <Arc fill="#a9c4eb04" layoutX="102.0" layoutY="93.0" length="270.0" radiusX="62.0" radiusY="62.0" startAngle="45.0" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="20.0">
+               <stroke>
+                  <LinearGradient endX="0.15000000000000002" endY="0.12142857142857144" startX="0.22857142857142865">
+                     <stops>
+                        <Stop color="#e6e6e6" />
+                        <Stop color="#a9c4eb" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Arc>
+            <ImageView fx:id="image" fitHeight="52.0" fitWidth="52.0" layoutX="76.0" layoutY="67.0" onMouseClicked="#handleAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@steps.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="63.0" layoutY="172.0" text="2233 steps" textFill="WHITE">
                <font>
-                  <Font name="Impact" size="62.0" />
+                  <Font name="Lucida Console" size="13.0" />
                </font>
             </Label>
          </children>

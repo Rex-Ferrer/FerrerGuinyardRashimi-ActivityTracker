@@ -7,16 +7,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.thunderBits.address.view.tappedViewController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <ImageView fx:id="settings" fitHeight="25.0" fitWidth="24.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#handleSettings" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@settings.png" />
+               </image>
+            </ImageView>
             <Label layoutX="57.0" layoutY="44.0" text="MON SEP 17" textFill="#d39a9a">
                <font>
                   <Font name="Lucida Console" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="33.0" layoutY="53.0" text="12:00" textFill="#fffdfd">
+            <Label fx:id="timeLabel" layoutX="33.0" layoutY="53.0" onMouseClicked="#handleAction" text="12:00" textFill="#fffdfd">
                <font>
                   <Font name="Impact" size="62.0" />
                </font>
@@ -28,9 +33,9 @@
                         <Image url="@calories.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="13.0" layoutY="7.0" text="1600" textFill="WHITE">
+                  <Label layoutX="13.0" layoutY="6.0" text="1600" textFill="WHITE">
                      <font>
-                        <Font size="10.0" />
+                        <Font name="Lucida Console" size="10.0" />
                      </font>
                   </Label>
                </children>
