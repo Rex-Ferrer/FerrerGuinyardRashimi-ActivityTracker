@@ -34,7 +34,7 @@ public class MainViewController implements Initializable  {
 	    System.out.println("You clicked me!");
 	    //switch scene
 	    stage = (Stage) timeLabel.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("TappedView.fxml"));
+        root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
     
 	    Scene scene = new Scene(root);
 	    stage.setScene(scene);
