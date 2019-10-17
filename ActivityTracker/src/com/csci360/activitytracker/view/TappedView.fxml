@@ -16,7 +16,7 @@
                   <Image url="@../resources/settings.png" />
                </image>
             </ImageView>
-            <Label layoutX="57.0" layoutY="44.0" text="MON SEP 17" textFill="#d39a9a">
+            <Label fx:id="date" layoutX="38.0" layoutY="46.0" text="MON SEP 17" textFill="#d39a9a">
                <font>
                   <Font name="Lucida Console" size="14.0" />
                </font>
