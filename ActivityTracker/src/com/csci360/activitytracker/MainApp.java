@@ -1,7 +1,5 @@
 package com.csci360.activitytracker;
 
-
-
 import com.csci360.activitytracker.controller.MainViewController;
 import java.io.IOException;
 
@@ -43,7 +41,7 @@ public class MainApp extends Application {
 
 			// Give MainViewController access to MainApp
 			MainViewController controller = loader.getController();
-			controller.setMainApp(this);
+			//controller.setMainApp(this);
 
 		} catch (IOException e) {
 			e.printStackTrace();
