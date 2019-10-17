@@ -78,18 +78,28 @@ public class DataInputViewController implements Initializable  {
     }
 	
 	  @FXML 
-	  private void handleOk() {
-	  
-	 sett.setTime(time.getText());
-	 sett.setDate(date.getText());
-	 sett.setAge(Integer.parseInt(age.getText()));
-	 sett.setHeight(Integer.parseInt(height.getText()));
-	 sett.setGender(gender.getText()); 
-	 sett.setWeight(Integer.parseInt(weight.getText()));
-	 sett.setstepGoal(Integer.parseInt(stepgoal.getText()));
-	  
+	  private void handleOk() throws IOException{
+		/*
+		 * sett.setTime(time.getText()); sett.setDate(date.getText());
+		 * sett.setAge(Integer.parseInt(age.getText()));
+		 * sett.setHeight(Integer.parseInt(height.getText()));
+		 * sett.setGender(gender.getText());
+		 * sett.setWeight(Integer.parseInt(weight.getText()));
+		 * sett.setstepGoal(Integer.parseInt(stepgoal.getText()));
+		 */
 	  
 	  okClicked = true;
+	  FXMLLoader root = new FXMLLoader();
+	    stage = (Stage) ok.getScene().getWindow();
+      //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
+      root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
+      
+      com = (AnchorPane) root.load();
+      Scene scene = new Scene(com);
+	    
+	    stage.setScene(scene);
+	    
+	    stage.show();
 	  
 	  }
 	 
@@ -112,18 +122,8 @@ public class DataInputViewController implements Initializable  {
         Scene scen = new Scene(complete);
 	    
 	    stage.setScene(scen);
-	    
-	    FXMLLoader root = new FXMLLoader();
-	    stage = (Stage) ok.getScene().getWindow();
-        //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
-        root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
-        
-        complete = (AnchorPane) root.load();
-        Scene scene = new Scene(complete);
-	    
-	    stage.setScene(scene);
-	    
 	    stage.show();
+	    
 	    
 	    
 	    
