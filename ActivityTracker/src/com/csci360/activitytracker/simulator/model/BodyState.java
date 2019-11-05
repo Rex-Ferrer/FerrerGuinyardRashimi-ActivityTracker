@@ -2,8 +2,10 @@ package com.csci360.activitytracker.simulator.model;
 
 public interface BodyState {
 
-  int getHeartRate();
+  double getHeartRate();
 
   int getStepSpeed();
+
+  int getCalorieBurnRate();
 
 }
