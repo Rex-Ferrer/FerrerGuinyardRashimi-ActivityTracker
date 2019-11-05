@@ -18,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -38,59 +40,56 @@ public class DataInputViewController implements Initializable  {
 	@FXML
 	private Button ok;
 	@FXML
-    private TextField time;
+    private Spinner<Integer> hour;
 	@FXML
-    private TextField date;
+    private Spinner<Integer> min;
     @FXML
-    private TextField age;
+    private Spinner<Integer> age;
     @FXML
-    private TextField weight;
-    @FXML
-    private TextField height;
-    @FXML
-    private TextField stepgoal;
-    @FXML
-    private TextField gender;
+    private Spinner <Integer>weight;
+    
 	@FXML
 	private Label timeLabel;
 	private settings sett;
+	@FXML
     private Parent root;
+	@FXML
     private Parent roo;
+	@FXML
     private Stage stage;
+	@FXML
     private boolean okClicked = false;
     
-    public void setSetting(settings sett) {
-        this.sett = sett;
-
-        time.setText(sett.getTime());
-        date.setText(sett.getDate());
-        age.setText(Integer.toString(sett.getAge()));
-        weight.setText(Integer.toString(sett.getWeight()));
-        height.setText(Integer.toString(sett.getHeight()));
-        stepgoal.setText(Integer.toString(sett.getstepGoal()));
-        gender.setText(sett.getGender());
-    }
-    
- 
-    
+	
+	  public void setSetting() { 
+		  this.sett = sett;
+	  
+	  if(true) {
+		  //hour
+		 timeLabel.setText(hour.getValue().toString());
+		 //min
+		 timeLabel.setText(min.getValue().toString());
+		 //age
+		 timeLabel.setText(age.getValue().toString());
+		 //weight
+		 timeLabel.setText(weight.getValue().toString());
+		 } }
+	 
+       
     public boolean isOkClicked() {
         return okClicked;
     }
 	
 	  @FXML 
 	  private void handleOk() throws IOException{
-		/*
-		 * sett.setTime(time.getText()); sett.setDate(date.getText());
-		 * sett.setAge(Integer.parseInt(age.getText()));
-		 * sett.setHeight(Integer.parseInt(height.getText()));
-		 * sett.setGender(gender.getText());
-		 * sett.setWeight(Integer.parseInt(weight.getText()));
-		 * sett.setstepGoal(Integer.parseInt(stepgoal.getText()));
-		 */
-	  
+		 int newH=hour.getValue();
+		 int newM=min.getValue();
+		 int newA=age.getValue();
+		 int newW=weight.getValue();
 	  okClicked = true;
 	  FXMLLoader root = new FXMLLoader();
 	    stage = (Stage) ok.getScene().getWindow();
+	    
       //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
       root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
       
@@ -124,8 +123,7 @@ public class DataInputViewController implements Initializable  {
 	    stage.setScene(scen);
 	    stage.show();
 	    
-	    
-	    
+	     
 	    
 	 }
 	
@@ -133,7 +131,21 @@ public class DataInputViewController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		 SpinnerValueFactory<Integer> valueHour = //
+	                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
+	            this.hour.setValueFactory(valueHour);
+	     SpinnerValueFactory<Integer> valueMin = //
+	                new SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
+	            this.min.setValueFactory(valueMin);
+	            
+	     SpinnerValueFactory<Integer> valueAge = //
+	                new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 12);
+	            this.age.setValueFactory(valueAge);
+	                
+	     SpinnerValueFactory<Integer> valueWeight = //
+	                new SpinnerValueFactory.IntegerSpinnerValueFactory(98, 400, 130);
+	            this.weight.setValueFactory(valueWeight);
+	            
 	}
 
 }

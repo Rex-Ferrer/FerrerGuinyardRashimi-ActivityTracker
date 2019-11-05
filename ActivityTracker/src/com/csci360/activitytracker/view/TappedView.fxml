@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,11 +20,6 @@
             <Label fx:id="date" layoutX="38.0" layoutY="46.0" text="MON SEP 17" textFill="#d39a9a">
                <font>
                   <Font name="Lucida Console" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="timeLabel" layoutX="33.0" layoutY="53.0" onMouseClicked="#handleAction" text="12:00" textFill="#fffdfd">
-               <font>
-                  <Font name="Impact" size="62.0" />
                </font>
             </Label>
             <Pane layoutX="144.0" layoutY="146.0" prefHeight="46.0" prefWidth="46.0">
@@ -68,6 +64,24 @@
                   </Label>
                </children>
             </Pane>
+            <Label fx:id="hour" layoutX="28.0" layoutY="52.0" onMouseClicked="#handleAction" text="12" textFill="#fff9f9">
+               <font>
+                  <Font name="Impact" size="64.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="46.0" text=":" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="64.0" />
+               </font>
+               <padding>
+                  <Insets top="4.0" />
+               </padding>
+            </Label>
+            <Label fx:id="min" layoutX="100.0" layoutY="52.0" onMouseClicked="#handleAction" text="00" textFill="#fffcfc">
+               <font>
+                  <Font name="Impact" size="64.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

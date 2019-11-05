@@ -29,28 +29,26 @@ public class MainViewController implements Initializable  {
 	@FXML
 	private AnchorPane complete;
 	@FXML 
-	private Label timeLabel;
+	private Label hour;
+	@FXML
+	private Label min;
 	@FXML
 	private ImageView image;
     private Parent root;
     private Stage stage;
    
-
  // determine the starting time.
-    Calendar calendar = GregorianCalendar.getInstance();
-     
+    Calendar calendar  = GregorianCalendar.getInstance();  
     final Timeline digitalTime = new Timeline(
     	      new KeyFrame(Duration.seconds(0),
     	        new EventHandler<ActionEvent>() {
     	          @Override public void handle(ActionEvent actionEvent) {
-    	            Calendar calendar            = GregorianCalendar.getInstance();
+    	            Calendar calendar = GregorianCalendar.getInstance();
     	            String hourString   = pad(2, '0', calendar.get(Calendar.HOUR)   == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-    	            String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
-    	            String secondString = pad(2, '0', calendar.get(Calendar.SECOND) + "");
-    	            //String ampmString   = calendar.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
-    	           //timeLabel.setText(hourString + ":" + minuteString + " " + ampmString);
-    	            timeLabel.setText(hourString + ":" + minuteString );
-    	            
+    	            String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + ""); 
+    	           
+    	            hour.setText(hourString  );
+    	            min.setText( minuteString );   	            
     	          }
     	        }
     	      ),
@@ -63,7 +61,6 @@ public class MainViewController implements Initializable  {
           sb.append(padChar);
         }
         sb.append(s);
-
         return sb.toString();
       }
 
@@ -73,18 +70,11 @@ public class MainViewController implements Initializable  {
 	    System.out.println("You clicked me!");
 	    //switch scene
 	    FXMLLoader root = new FXMLLoader();
-	    stage = (Stage) timeLabel.getScene().getWindow();
-        //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
-        root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
-        
+	    stage = (Stage) hour.getScene().getWindow();
+        root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));        
         complete = (AnchorPane) root.load();
-        Scene scene = new Scene(complete);
-	    
-	    stage.setScene(scene);
-	    
-	    
-	    
-	    
+        Scene scene = new Scene(complete);	    
+	    stage.setScene(scene);	        
 	    stage.show();
 		 // Show the scene containing the MainView layout.
 		
@@ -103,8 +93,5 @@ public class MainViewController implements Initializable  {
 //}
 
 
-	/*
-	 * public void setMainApp(MainApp mainApp) { this.mainApp = mainApp; }
-	 */
 
 }

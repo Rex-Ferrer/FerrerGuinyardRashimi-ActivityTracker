@@ -27,14 +27,14 @@ import com.csci360.activitytracker.MainApp;
 import com.csci360.activitytracker.settings;
 //TODO Generate time and push to view. Generate data and push to view.
 
-//TODO Generate time and push to view. Generate data and push to view.
-//
 public class TappedViewController implements Initializable  {
 	
 	@FXML
 	private AnchorPane complete;
 	@FXML 
-	private Label timeLabel;
+	private Label hour;
+	@FXML 
+	private Label min;
 	@FXML
 	private Label date;
 	@FXML
@@ -42,6 +42,8 @@ public class TappedViewController implements Initializable  {
     private Parent root;
     private Stage stage;
     private settings sett;
+    private DataInputViewController dataa;
+
     
     Calendar calendar = GregorianCalendar.getInstance();
     final Timeline digitalTime = new Timeline(
@@ -51,11 +53,8 @@ public class TappedViewController implements Initializable  {
     	            Calendar calendar = GregorianCalendar.getInstance();
     	            String hourString   = pad(2, '0', calendar.get(Calendar.HOUR)   == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
     	            String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
-    	            String secondString = pad(2, '0', calendar.get(Calendar.SECOND) + "");
-    	            settings temp= new settings();
-    	           //if handelok has text set that to timelabel
-    	           // if(showP(temp)==null)
-    	            timeLabel.setText(hourString + ":" + minuteString );
+    	            hour.setText(hourString  );
+    	            min.setText( minuteString );  
     	            
     	          }
     	        }
@@ -76,8 +75,7 @@ public class TappedViewController implements Initializable  {
   	          calendar.get(Calendar.DATE) +" "+
   	           calendar.get(Calendar.YEAR);
   	            int year= calendar.get(Calendar.DAY_OF_YEAR);
-  	            date.setText(date1);
-  	            
+  	            date.setText(date1);  
   	          }
   	        }
   	      ),
@@ -92,7 +90,6 @@ public class TappedViewController implements Initializable  {
           sb.append(padChar);
         }
         sb.append(s);
-
         return sb.toString();
       }
     
@@ -100,40 +97,24 @@ public class TappedViewController implements Initializable  {
 	private void handleAction() throws IOException {
 	    System.out.println("Next!");
 	     //switch scene
-	    stage = (Stage) timeLabel.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
-	    stage = (Stage) timeLabel.getScene().getWindow();
-        //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
-        root.setLocation(MainApp.class.getResource("view/StepsView.fxml"));
-        
+	    stage = (Stage) hour.getScene().getWindow();
+        root.setLocation(MainApp.class.getResource("view/StepsView.fxml"));    
         complete = (AnchorPane) root.load();
-        Scene scene = new Scene(complete);
-	    
-	    stage.setScene(scene);
-	    
+        Scene scene = new Scene(complete);    
+	    stage.setScene(scene);   
 	    stage.show();
 	}
 
 	@FXML
 	private void handleSettings() throws IOException {
-		System.out.println("Clicked !");
-	    //switch scene
-	    //stage = (Stage) timeLabel.getScene().getWindow();
-		
-		
+		System.out.println("Clicked settings!");  
 		FXMLLoader root = new FXMLLoader();
-	    stage = (Stage) settings.getScene().getWindow();
-        //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
-        root.setLocation(MainApp.class.getResource("view/DataInputView.fxml"));
-        
+	    stage = (Stage) settings.getScene().getWindow(); 
+        root.setLocation(MainApp.class.getResource("view/DataInputView.fxml"));     
         complete = (AnchorPane) root.load();
-        Scene scene = new Scene(complete);
-	    
-	    stage.setScene(scene);
-	    
-	    
-	    
-	    
+        Scene scene = new Scene(complete);	    
+	    stage.setScene(scene);       	      
 	    stage.show();
 	    
 	   
