@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.activitytracker.controller.CaloriesViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.csci360.activitytracker.controller.CaloriesViewController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Arc fill="#a9c4eb04" layoutX="102.0" layoutY="93.0" length="360.0" radiusX="62.0" radiusY="62.0" startAngle="45.0" stroke="#e6e6e6" strokeType="INSIDE" strokeWidth="20.0" />
-            <Arc fill="#a9c4eb04" layoutX="102.0" layoutY="93.0" length="270.0" radiusX="62.0" radiusY="62.0" startAngle="45.0" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="20.0">
-               <stroke>
-                  <LinearGradient endX="0.15000000000000002" endY="0.12142857142857144" startX="0.22857142857142865">
-                     <stops>
-                        <Stop color="#e6e6e6" />
-                        <Stop color="#f8cecc" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </stroke>
-            </Arc>
             <ImageView fx:id="image" fitHeight="52.0" fitWidth="52.0" layoutX="74.0" layoutY="67.0" onMouseClicked="#handleAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/calories.png" />
@@ -35,6 +24,14 @@
                   <Font name="Lucida Console" size="13.0" />
                </font>
             </Label>
+            <ProgressIndicator layoutX="40.0" layoutY="27.0" minHeight="78.0" minWidth="78.0" prefHeight="145.0" prefWidth="150.0" progress="0.5" radius="62.0">
+               <cursor>
+                  <Cursor fx:constant="SE_RESIZE" />
+               </cursor>
+               <effect>
+                  <Glow level="0.9" />
+               </effect>
+            </ProgressIndicator>
          </children>
       </Pane>
    </children>

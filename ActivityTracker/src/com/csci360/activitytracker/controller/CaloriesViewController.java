@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ public class CaloriesViewController implements Initializable  {
 	private ImageView image;
 	private Parent root;
     private Stage stage;
+    private ProgressIndicator calories;
 
 	@FXML
 	private void handleAction() throws IOException {
@@ -48,7 +50,7 @@ public class CaloriesViewController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		calories.setStyle("-fx-progress-color: orange;");
 		
 	}
 

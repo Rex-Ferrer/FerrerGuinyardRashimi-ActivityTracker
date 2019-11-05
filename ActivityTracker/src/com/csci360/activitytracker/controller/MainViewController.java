@@ -37,7 +37,7 @@ public class MainViewController implements Initializable  {
    
 
  // determine the starting time.
-    Calendar calendar            = GregorianCalendar.getInstance();
+    Calendar calendar = GregorianCalendar.getInstance();
      
     final Timeline digitalTime = new Timeline(
     	      new KeyFrame(Duration.seconds(0),

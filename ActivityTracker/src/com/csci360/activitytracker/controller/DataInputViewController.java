@@ -65,10 +65,10 @@ public class DataInputViewController implements Initializable  {
         time.setText(sett.getTime());
         date.setText(sett.getDate());
         age.setText(Integer.toString(sett.getAge()));
-       weight.setText(Integer.toString(sett.getWeight()));
-       height.setText(Integer.toString(sett.getHeight()));
-       stepgoal.setText(Integer.toString(sett.getstepGoal()));
-       gender.setText(sett.getGender());
+        weight.setText(Integer.toString(sett.getWeight()));
+        height.setText(Integer.toString(sett.getHeight()));
+        stepgoal.setText(Integer.toString(sett.getstepGoal()));
+        gender.setText(sett.getGender());
     }
     
  

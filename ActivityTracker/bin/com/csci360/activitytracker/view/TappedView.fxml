@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.activitytracker.controller.TappedViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.csci360.activitytracker.controller.TappedViewController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -16,7 +16,7 @@
                   <Image url="@../resources/settings.png" />
                </image>
             </ImageView>
-            <Label layoutX="57.0" layoutY="44.0" text="MON SEP 17" textFill="#d39a9a">
+            <Label fx:id="date" layoutX="38.0" layoutY="46.0" text="MON SEP 17" textFill="#d39a9a">
                <font>
                   <Font name="Lucida Console" size="14.0" />
                </font>
