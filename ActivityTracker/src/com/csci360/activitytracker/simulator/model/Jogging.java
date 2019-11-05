@@ -3,7 +3,7 @@ package com.csci360.activitytracker.simulator.model;
 public class Jogging implements MovingState {
 
   private final double heartRate;
-  private final int stepSpeed = 0;
+  private final int stepSpeed = 3; //per second
   private final int calorieBurnRate = 0;
 
   public Jogging(int age) {
