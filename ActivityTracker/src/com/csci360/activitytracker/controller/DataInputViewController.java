@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-
+import java.util.Scanner;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,6 +22,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -38,11 +39,17 @@ public class DataInputViewController implements Initializable  {
 	@FXML 
 	private ImageView image;
 	@FXML
-	private Button ok;
-	@FXML
-    private Spinner<Integer> hour;
-	@FXML
-    private Spinner<Integer> min;
+	public Button ok=new Button();
+	 @FXML
+	    private TextField hour;
+
+	    @FXML
+	    private TextField min;
+	/*
+	 * @FXML public Spinner<Integer> hour;
+	 * 
+	 * @FXML public Spinner<Integer> min;
+	 */
     @FXML
     private Spinner<Integer> age;
     @FXML
@@ -50,7 +57,7 @@ public class DataInputViewController implements Initializable  {
     
 	@FXML
 	private Label timeLabel;
-	private settings sett;
+	settings sett;
 	@FXML
     private Parent root;
 	@FXML
@@ -58,40 +65,62 @@ public class DataInputViewController implements Initializable  {
 	@FXML
     private Stage stage;
 	@FXML
-    private boolean okClicked = false;
-    
+    public boolean okClicked=true ;
+	public String Hours ="tell me y,y,yyy";
+	private String Minutes;
+	public String rr;
+	/*
+	 * public void setHours(String Hours) { this.Hours=Hours; }
+	 * 
+	 * public String getHours() { return Hours; }
+	 */
+
+    public Integer ok() {
+    	Scanner scan=new Scanner(System.in);
+    	int n= scan.nextInt();
+    	//this.sett = new settings();
+    	//Integer u=Integer.parseInt(hour.getValue().toString());
+		 //sett.setMin(this.min.getValue().toString());
+		 //System.out.println("\n ok button:" + sett.getHours());System.out.println("ok button for min:" + sett.getMin());
+    	 return u;
+    }
 	
-	  public void setSetting() { 
-		  this.sett = sett;
-	  
-	  if(true) {
-		  //hour
-		 timeLabel.setText(hour.getValue().toString());
-		 //min
-		 timeLabel.setText(min.getValue().toString());
-		 //age
-		 timeLabel.setText(age.getValue().toString());
-		 //weight
-		 timeLabel.setText(weight.getValue().toString());
-		 } }
-	 
-       
+	 void foo(DataInputViewController test) {test.okClicked=true;}
+       boolean fooo(boolean test) {return true;}
+	  /**
+	   * The ok button was clicked
+	   * @return
+	   */
     public boolean isOkClicked() {
         return okClicked;
     }
 	
+    /**
+     * When the ok button is clicked, it saves the input and the interface changes
+     * @throws IOException
+     */
+ 
 	  @FXML 
-	  private void handleOk() throws IOException{
-		 int newH=hour.getValue();
-		 int newM=min.getValue();
-		 int newA=age.getValue();
-		 int newW=weight.getValue();
-	  okClicked = true;
-	  FXMLLoader root = new FXMLLoader();
+	  public void handleOk(ActionEvent event) throws IOException{
+		  this.sett = new settings();
+		  //sett.setHours(this.hour.getValue().toString());
+			 //sett.setMin(this.min.getValue().toString());
+			//this doesnt work returns null System.out.println("\n ok button:" + sett.getHours());System.out.println("ok button for min:" + sett.getMin());
+	    	 
+			//This returns the right thing System.out.println("end: "+this.hour.getValue().toString());
+		 // System.out.print("NewEnd: "+sett.getHours());
+		 
+		  boolean v= false;
+		  v=fooo(v);
+		 
+		  //okClicked = true;
+		  v =isOkClicked();
+		  System.out.print("read "+v);
+	 	  FXMLLoader root = new FXMLLoader();
 	    stage = (Stage) ok.getScene().getWindow();
 	    
       //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
-      root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
+      root.setLocation(MainApp.class.getResource("view/UserTapped.fxml"));
       
       com = (AnchorPane) root.load();
       Scene scene = new Scene(com);
@@ -99,23 +128,27 @@ public class DataInputViewController implements Initializable  {
 	    stage.setScene(scene);
 	    
 	    stage.show();
-	  
+	    
 	  }
 	 
+   
+
     
     
-    
-    
+   /**
+    * When the back arrow image is clicked a new interface appears
+    * @throws IOException
+    */
 	@FXML
-	private void handleAction() throws IOException {
+	private void handleAction(MouseEvent event) throws IOException {
 	    System.out.println("You clicked me!");
 	    //switch scene
-		
+	    isOkClicked();
+		  System.out.print("read lim "+isOkClicked());
 	    stage = (Stage) image.getScene().getWindow();
 	    FXMLLoader roo = new FXMLLoader();
 	   
-        //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
-        roo.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
+       roo.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
         
         complete = (AnchorPane) roo.load();
         Scene scen = new Scene(complete);
@@ -131,13 +164,16 @@ public class DataInputViewController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		 SpinnerValueFactory<Integer> valueHour = //
-	                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
-	            this.hour.setValueFactory(valueHour);
-	     SpinnerValueFactory<Integer> valueMin = //
-	                new SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
-	            this.min.setValueFactory(valueMin);
-	            
+		/*
+		 * SpinnerValueFactory<Integer> hourClick = // new
+		 * SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
+		 * this.hour.setValueFactory(hourClick);
+		 * 
+		 * SpinnerValueFactory<Integer> minClick = // new
+		 * SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
+		 * this.min.setValueFactory(minClick);
+		 * 
+		 */
 	     SpinnerValueFactory<Integer> valueAge = //
 	                new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 12);
 	            this.age.setValueFactory(valueAge);

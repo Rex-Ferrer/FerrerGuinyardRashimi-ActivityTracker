@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.csci360.activitytracker.controller.DataInputViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.activitytracker.controller.DataInputViewController">
    <children>
     <AnchorPane layoutX="86.0" layoutY="165.0" minHeight="0.0" minWidth="0.0" prefHeight="311.0" prefWidth="200.0" />
       <Pane prefHeight="207.0" prefWidth="200.0" style="-fx-background-color: #000000;">
@@ -29,7 +29,7 @@
                   <Font name="Lucida Console" size="13.0" />
                </font>
             </Label>
-            <Spinner fx:id="hour" editable="true" layoutX="26.0" layoutY="44.0" prefHeight="23.0" prefWidth="63.0" />
+            <Spinner fx:id="hour" layoutX="26.0" layoutY="44.0" prefHeight="23.0" prefWidth="63.0" />
             
             <Label layoutX="100.0" layoutY="48.0" text="Min" textFill="WHITE">
                <font>
@@ -49,7 +49,7 @@
                </font>
             </Label>
             <Spinner fx:id="weight" layoutX="92.0" layoutY="133.0" prefHeight="23.0" prefWidth="63.0" />
-            <Button fx:id="ok" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#handleOk" text="OK" />
+            <Button fx:id="ok" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleOk" onMouseClicked="#ok" text="OK" />
          </children>
       </Pane>
    </children>

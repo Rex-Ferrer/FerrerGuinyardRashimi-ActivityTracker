@@ -1,6 +1,8 @@
 package com.csci360.activitytracker.controller;
 //import com.csci360.activitytracker.view.TappedView.fxml;
 import com.csci360.activitytracker.MainApp;
+import com.csci360.activitytracker.settings;
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -36,24 +38,47 @@ public class MainViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
-   
+    private settings sett;
  // determine the starting time.
-    Calendar calendar  = GregorianCalendar.getInstance();  
-    final Timeline digitalTime = new Timeline(
-    	      new KeyFrame(Duration.seconds(0),
-    	        new EventHandler<ActionEvent>() {
-    	          @Override public void handle(ActionEvent actionEvent) {
-    	            Calendar calendar = GregorianCalendar.getInstance();
-    	            String hourString   = pad(2, '0', calendar.get(Calendar.HOUR)   == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-    	            String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + ""); 
-    	           
-    	            hour.setText(hourString  );
-    	            min.setText( minuteString );   	            
-    	          }
-    	        }
-    	      ),
-    	      new KeyFrame(Duration.seconds(1))
-    	    );
+ 
+	/*
+	 * Calendar calendar = GregorianCalendar.getInstance(); final Timeline
+	 * digitalTime = new Timeline( new KeyFrame(Duration.seconds(0), new
+	 * EventHandler<ActionEvent>() {
+	 * 
+	 * @Override public void handle(ActionEvent actionEvent) { Calendar calendar =
+	 * GregorianCalendar.getInstance(); String hourString = pad(2, '0',
+	 * calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
+	 * String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
+	 * 
+	 * hour.setText(hourString ); min.setText( minuteString ); } } ), new
+	 * KeyFrame(Duration.seconds(1)) );
+	 */
+    public void DigitalClock() {
+
+    	final Timeline digitalTime = new Timeline(
+      	      new KeyFrame(Duration.seconds(0),
+      	        new EventHandler<ActionEvent>() {
+      	          @Override public void handle(ActionEvent actionEvent) {
+        
+                    Calendar calendar=new GregorianCalendar();
+
+                    String hourString = pad(2, '0',
+                    	calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
+                    String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
+              
+                   hour.setText(hourString); 
+                   min.setText(minuteString); 
+
+                }
+      	        
+  	        }
+  	      ),
+  	      new KeyFrame(Duration.seconds(1))
+  	    );
+    	digitalTime.setCycleCount(Animation.INDEFINITE);
+		digitalTime.play();
+    }
 	private MainApp mainApp;
     private String pad(int fieldWidth, char padChar, String s) {
         StringBuilder sb = new StringBuilder();
@@ -86,8 +111,9 @@ public class MainViewController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		digitalTime.setCycleCount(Animation.INDEFINITE);
-		digitalTime.play();
+		//
+		DigitalClock() ;
+		
 	}
 
 //}
