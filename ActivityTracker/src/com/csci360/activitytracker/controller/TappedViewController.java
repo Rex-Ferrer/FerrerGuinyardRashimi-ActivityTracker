@@ -87,22 +87,7 @@ public class TappedViewController implements Initializable  {
         	            hour.setText(hourString );
         	            min.setText(minuteString );
         	        	  }
-        	            else  {
-        	            	System.out.println("iobj "+dataa.isOkClicked());
-        	            	//System.out.println("\n ok button:" + dataa.ok());System.out.println("ok button for min:" + dataa.sett.getMin());
-        	            	//set.setHours(dataa.hour.getValue().toString());
-        	            	//set.setMin(dataa.min.getValue().toString());
-        	            	//System.out.println("jjj"+);
-        	            	
-String hourString="7";
-          	            //String hourString   = pad(2, '0', (Integer.parseInt(sett.getHours
-          	            	//	()))== 0 ? "12" : (Integer.parseInt(sett.getHours())) + "");
-
-          	            String minuteString = checkTime(dataa.min.getValue());
-
-          	          System.out.println("youclicked");
-        	            hour.setText(hourString );
-        	            min.setText(minuteString );}
+        	            
         	          }
 
         	        }

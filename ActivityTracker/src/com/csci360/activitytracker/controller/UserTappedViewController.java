@@ -42,11 +42,11 @@ public class UserTappedViewController implements Initializable {
     private Parent root;
     private Stage stage;
     private settings sett;
-    private Integer dataa=new DataInputViewController().ok();
+    //private Integer dataa=new DataInputViewController().ok();
     int mill;
     int sec= 50;
 	int mi= 59;
-	int hr=dataa;
+	int hr;
 	int t;
 	boolean state=true;
 	
@@ -58,7 +58,7 @@ public class UserTappedViewController implements Initializable {
     	sett=new settings();
     	 
     	 
-    	System.out.print("NewEnd: "+dataa);
+    	//System.out.print("NewEnd: "+dataa);
     	//returns null System.out.print("NewEnd: "+sett.getHours());
     	//ERROR System.out.print("NewEnd: "+dataa.sett.getHours());
     	

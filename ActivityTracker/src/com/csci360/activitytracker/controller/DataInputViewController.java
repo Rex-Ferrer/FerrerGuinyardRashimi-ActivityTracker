@@ -40,16 +40,16 @@ public class DataInputViewController implements Initializable  {
 	private ImageView image;
 	@FXML
 	public Button ok=new Button();
-	 @FXML
-	    private TextField hour;
-
-	    @FXML
-	    private TextField min;
+	// @FXML
 	/*
-	 * @FXML public Spinner<Integer> hour;
+	 * public TextField hour;
 	 * 
-	 * @FXML public Spinner<Integer> min;
+	 * @FXML public TextField min;
 	 */
+	  @FXML public Spinner<Integer> hour;
+	  
+	  @FXML public Spinner<Integer> min;
+	 
     @FXML
     private Spinner<Integer> age;
     @FXML
@@ -62,6 +62,7 @@ public class DataInputViewController implements Initializable  {
     private Parent root;
 	@FXML
     private Parent roo;
+	Integer y;
 	@FXML
     private Stage stage;
 	@FXML
@@ -78,11 +79,12 @@ public class DataInputViewController implements Initializable  {
     public Integer ok() {
     	Scanner scan=new Scanner(System.in);
     	int n= scan.nextInt();
+    	
     	//this.sett = new settings();
     	//Integer u=Integer.parseInt(hour.getValue().toString());
 		 //sett.setMin(this.min.getValue().toString());
 		 //System.out.println("\n ok button:" + sett.getHours());System.out.println("ok button for min:" + sett.getMin());
-    	 return u;
+    	 return Integer.parseInt(hour.toString());
     }
 	
 	 void foo(DataInputViewController test) {test.okClicked=true;}
@@ -164,16 +166,16 @@ public class DataInputViewController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		/*
-		 * SpinnerValueFactory<Integer> hourClick = // new
-		 * SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
-		 * this.hour.setValueFactory(hourClick);
-		 * 
-		 * SpinnerValueFactory<Integer> minClick = // new
-		 * SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
-		 * this.min.setValueFactory(minClick);
-		 * 
-		 */
+		
+		  SpinnerValueFactory<Integer> hourClick =  new
+		  SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12, 1);
+		  this.hour.setValueFactory(hourClick);
+		  
+		  SpinnerValueFactory<Integer> minClick =  new
+		  SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
+		  this.min.setValueFactory(minClick);
+		  
+		 
 	     SpinnerValueFactory<Integer> valueAge = //
 	                new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 12);
 	            this.age.setValueFactory(valueAge);
