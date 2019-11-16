@@ -43,19 +43,11 @@ public class StepsViewController implements Initializable  {
 	    stage.show();
 	    
 	   
-	    
-	    
-		/*
-		 * stage = (Stage) image.getScene().getWindow(); root =
-		 * FXMLLoader.load(getClass().getResource("CaloriesView.fxml"));
-		 * 
-		 * Scene scene = new Scene(root); stage.setScene(scene); stage.show();
-		 */
+	 
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 
