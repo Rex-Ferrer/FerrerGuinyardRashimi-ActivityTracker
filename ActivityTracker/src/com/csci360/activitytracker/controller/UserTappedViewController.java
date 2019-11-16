@@ -38,7 +38,6 @@ public class UserTappedViewController implements Initializable {
 	private Label min;
 	@FXML
 	private Label date;
-
 	@FXML
 	private ImageView settings;
     private Parent root;

@@ -29,7 +29,6 @@ public class SleepViewController implements Initializable  {
     
 	@FXML
 	private void handleAction() throws IOException {
-
 	  //switch scene
 	    
 	    FXMLLoader root = new FXMLLoader();

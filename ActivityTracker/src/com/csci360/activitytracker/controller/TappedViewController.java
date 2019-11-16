@@ -79,7 +79,6 @@ public class TappedViewController implements Initializable  {
       	digitalTime.setCycleCount(Animation.INDEFINITE);
   		
   		digitalTime.play();
-    
       }
     /**
      * Produces the date in the following format

@@ -97,10 +97,7 @@ public class DataInputViewController implements Initializable  {
 	    stage.show();
 	    
 	  }
-	 
-   
-
-    
+	
     
    /**
     * When the back arrow image is clicked a new interface appears
