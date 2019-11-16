@@ -168,6 +168,7 @@ public class UserTappedViewController implements Initializable {
 	@FXML
 	private void handlecal(MouseEvent event) throws IOException {
 	     //switch scene
+		
 	    stage = (Stage) hour.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
 	    stage = (Stage) hour.getScene().getWindow();

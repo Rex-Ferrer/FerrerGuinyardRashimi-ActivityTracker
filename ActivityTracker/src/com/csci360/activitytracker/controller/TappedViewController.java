@@ -169,7 +169,7 @@ public class TappedViewController implements Initializable  {
 		// TODO Auto-generated method stub
 		try {
 			DigitalClock() ;
-			//Date();
+			
 			initClock();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
