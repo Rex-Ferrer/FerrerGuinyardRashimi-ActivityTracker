@@ -50,7 +50,6 @@ public class CaloriesViewController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		calories.setStyle("-fx-progress-color: orange;");
 		
 	}
 
