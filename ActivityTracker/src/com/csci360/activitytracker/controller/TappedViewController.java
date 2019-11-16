@@ -2,6 +2,8 @@ package com.csci360.activitytracker.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
@@ -44,49 +46,25 @@ public class TappedViewController implements Initializable  {
 	private ImageView settings;
     private Parent root;
     private Stage stage;
-    private settings sett;
-    private DataInputViewController dataa;
-
-    public String checkTime(int t){
-        String time1;
-        if (t < 10){
-            time1 = ("0"+t);
-            }
-        else{
-            time1 = (""+t);
-            }
-        return time1;
-    }
+    
     /**
      * Produces the time in the format: Hours and minutes
      * @throws IOException 
      */
-    public void DigitalClock(settings set) throws IOException {
-    	
-    	 Timeline digitalTime = null;
-    	 //Timeline d=null;
-        dataa=new DataInputViewController();
-        sett=new settings();
-        dataa.okClicked=false;
-         digitalTime = new Timeline(
+    public void DigitalClock() throws IOException {
+    
+    	 Timeline digitalTime = new Timeline(
 
         	      new KeyFrame(Duration.seconds(0),
 
         	        new EventHandler<ActionEvent>() {
 
-        	          @Override public void handle(ActionEvent actionEvent) {
-        	        	  
-        	        	  if(dataa.okClicked ==false) {
-        	        		  //System.out.println("edhwgaiusvbdjklaz"+dataa.isOkClicked());
-        	            Calendar calendar = GregorianCalendar.getInstance();
-
+        	          @Override public void handle(ActionEvent actionEvent) {      	        	  
+         	            Calendar calendar = GregorianCalendar.getInstance();
         	           String hourString = pad(2, '0', calendar.get(Calendar.HOUR)   == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-
-        	           String minuteString= pad(2, '0', calendar.get(Calendar.MINUTE) + "");
-        	            //System.out.println("notclicked");
+        	           String minuteString= pad(2, '0', calendar.get(Calendar.MINUTE) + "");      	           
         	            hour.setText(hourString );
-        	            min.setText(minuteString );
-        	        	  }
+        	            min.setText(minuteString );  
         	            
         	          }
 
@@ -101,35 +79,21 @@ public class TappedViewController implements Initializable  {
       	digitalTime.setCycleCount(Animation.INDEFINITE);
   		
   		digitalTime.play();
-    
       }
     /**
      * Produces the date in the following format
      * week ,month, date, year
      */
-    public void Date() {
-    final Timeline datee = new Timeline(
-  	      new KeyFrame(Duration.seconds(0),
-  	        new EventHandler<ActionEvent>() {
-  	          @Override public void handle(ActionEvent actionEvent) {
-  	            Calendar calendar = GregorianCalendar.getInstance();
-  	          String month[] = { "Jan", "Feb", "Mar", "Apr", 
-                      "May", "Jun", "Jul", "Aug", 
-                      "Sep", "Oct", "Nov", "Dec" }; 
-  	          String week[]= {"Sat", " Sun", "Mon","Tue","Wed","Thur", "Fri"};
-  	          String date1   =week[calendar.get(Calendar.DAY_OF_WEEK)]+" " + month[calendar.get(Calendar.MONTH)]+" "+
-  	          calendar.get(Calendar.DATE) +" "+
-  	           calendar.get(Calendar.YEAR);
-  	            date.setText(date1);  
-  	          }
-  	        }
-  	      ),
-  	      new KeyFrame(Duration.seconds(1))
-  	    );
-    datee.setCycleCount(Animation.INDEFINITE);
-	datee.play();
-}
-   
+
+    private void initClock() {
+
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E MMM dd yyyy ");
+            date.setText(LocalDateTime.now().format(formatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+    }
     
     /**
      * Formats the time 
@@ -152,8 +116,7 @@ public class TappedViewController implements Initializable  {
      * @throws IOException
      */
 	@FXML
-	private void handleAction(MouseEvent event) throws IOException {
-	    System.out.println("Next!");
+	private void handleAction(MouseEvent event) throws IOException { 
 	     //switch scene
 	    stage = (Stage) hour.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
@@ -172,7 +135,6 @@ public class TappedViewController implements Initializable  {
 	 */
 	@FXML
 	private void handleSettings(MouseEvent event) throws IOException {
-		System.out.println("Clicked settings!");  
 		FXMLLoader root = new FXMLLoader();
 	    stage = (Stage) settings.getScene().getWindow(); 
         root.setLocation(MainApp.class.getResource("view/DataInputView.fxml"));     
@@ -187,8 +149,7 @@ public class TappedViewController implements Initializable  {
 	 * @throws IOException
 	 */
 	@FXML
-	private void handlecal(MouseEvent event) throws IOException {
-	    System.out.println("Next!");
+	private void handlecal(MouseEvent event) throws IOException {	    
 	     //switch scene
 	    stage = (Stage) hour.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
@@ -207,12 +168,13 @@ public class TappedViewController implements Initializable  {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		try {
-			DigitalClock(null) ;
+			DigitalClock() ;
+			
+			initClock();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Date();
 		
 
 	}

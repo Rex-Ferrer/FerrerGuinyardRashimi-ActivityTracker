@@ -47,9 +47,9 @@
                </font>
             </Label>
             <Spinner fx:id="weight" layoutX="92.0" layoutY="133.0" prefHeight="23.0" prefWidth="63.0" />
-            <Button fx:id="ok" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleOk" onMouseClicked="#ok" text="OK" />
+            <Button fx:id="ok" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
             <Spinner fx:id="hour" layoutX="26.0" layoutY="43.0" prefHeight="23.0" prefWidth="63.0" />
-            <Spinner fx:id="min" layoutX="132.0" layoutY="43.0" prefHeight="23.0" prefWidth="47.0" />
+            <Spinner fx:id="min" layoutX="132.0" layoutY="43.0" prefHeight="23.0" prefWidth="63.0" />
          </children>
       </Pane>
    </children>

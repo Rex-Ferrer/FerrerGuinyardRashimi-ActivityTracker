@@ -27,7 +27,7 @@ public class StepsViewController implements Initializable  {
 
 	@FXML
 	private void handleAction() throws IOException {
-	    System.out.println("You clicked me!");
+	
 	  //switch scene
 	    
 	    FXMLLoader root = new FXMLLoader();

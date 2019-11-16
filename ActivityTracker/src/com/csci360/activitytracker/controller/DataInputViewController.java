@@ -40,12 +40,7 @@ public class DataInputViewController implements Initializable  {
 	private ImageView image;
 	@FXML
 	public Button ok=new Button();
-	// @FXML
-	/*
-	 * public TextField hour;
-	 * 
-	 * @FXML public TextField min;
-	 */
+	
 	  @FXML public Spinner<Integer> hour;
 	  
 	  @FXML public Spinner<Integer> min;
@@ -57,38 +52,17 @@ public class DataInputViewController implements Initializable  {
     
 	@FXML
 	private Label timeLabel;
-	settings sett;
+	
 	@FXML
     private Parent root;
 	@FXML
     private Parent roo;
-	Integer y;
+	
 	@FXML
     private Stage stage;
 	@FXML
     public boolean okClicked=true ;
-	public String Hours ="tell me y,y,yyy";
-	private String Minutes;
-	public String rr;
-	/*
-	 * public void setHours(String Hours) { this.Hours=Hours; }
-	 * 
-	 * public String getHours() { return Hours; }
-	 */
 
-    public Integer ok() {
-    	Scanner scan=new Scanner(System.in);
-    	int n= scan.nextInt();
-    	
-    	//this.sett = new settings();
-    	//Integer u=Integer.parseInt(hour.getValue().toString());
-		 //sett.setMin(this.min.getValue().toString());
-		 //System.out.println("\n ok button:" + sett.getHours());System.out.println("ok button for min:" + sett.getMin());
-    	 return Integer.parseInt(hour.toString());
-    }
-	
-	 void foo(DataInputViewController test) {test.okClicked=true;}
-       boolean fooo(boolean test) {return true;}
 	  /**
 	   * The ok button was clicked
 	   * @return
@@ -104,38 +78,26 @@ public class DataInputViewController implements Initializable  {
  
 	  @FXML 
 	  public void handleOk(ActionEvent event) throws IOException{
-		  this.sett = new settings();
-		  //sett.setHours(this.hour.getValue().toString());
-			 //sett.setMin(this.min.getValue().toString());
-			//this doesnt work returns null System.out.println("\n ok button:" + sett.getHours());System.out.println("ok button for min:" + sett.getMin());
-	    	 
-			//This returns the right thing System.out.println("end: "+this.hour.getValue().toString());
-		 // System.out.print("NewEnd: "+sett.getHours());
-		 
-		  boolean v= false;
-		  v=fooo(v);
-		 
-		  //okClicked = true;
-		  v =isOkClicked();
-		  System.out.print("read "+v);
+
+		  int hour_o=hour.getValue();
+		  int min_o=min.getValue();
+		  
 	 	  FXMLLoader root = new FXMLLoader();
-	    stage = (Stage) ok.getScene().getWindow();
-	    
-      //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
+	 	stage = (Stage) ok.getScene().getWindow();
+
       root.setLocation(MainApp.class.getResource("view/UserTapped.fxml"));
       
       com = (AnchorPane) root.load();
       Scene scene = new Scene(com);
-	    
+      UserTappedViewController display=root.getController();
+	 	 display.DigitalClock(hour_o,min_o);
+
 	    stage.setScene(scene);
 	    
 	    stage.show();
 	    
 	  }
-	 
-   
-
-    
+	
     
    /**
     * When the back arrow image is clicked a new interface appears
@@ -143,10 +105,9 @@ public class DataInputViewController implements Initializable  {
     */
 	@FXML
 	private void handleAction(MouseEvent event) throws IOException {
-	    System.out.println("You clicked me!");
 	    //switch scene
 	    isOkClicked();
-		  System.out.print("read lim "+isOkClicked());
+		
 	    stage = (Stage) image.getScene().getWindow();
 	    FXMLLoader roo = new FXMLLoader();
 	   
@@ -174,7 +135,7 @@ public class DataInputViewController implements Initializable  {
 		  SpinnerValueFactory<Integer> minClick =  new
 		  SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
 		  this.min.setValueFactory(minClick);
-		  
+  
 		 
 	     SpinnerValueFactory<Integer> valueAge = //
 	                new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 12);
