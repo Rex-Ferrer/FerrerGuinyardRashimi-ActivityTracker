@@ -29,7 +29,7 @@ public class CaloriesViewController implements Initializable  {
 
 	@FXML
 	private void handleAction() throws IOException {
-	    System.out.println("You clicked me!");
+	   
 	  //switch scene
 	    
 	    FXMLLoader root = new FXMLLoader();
@@ -50,7 +50,6 @@ public class CaloriesViewController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		calories.setStyle("-fx-progress-color: orange;");
 		
 	}
 

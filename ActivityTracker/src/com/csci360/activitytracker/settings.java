@@ -10,8 +10,8 @@ import javafx.scene.control.Spinner;
 
 /*holds info about settings*/
 public class settings {
-	private String Hours;
-	private String Minutes;
+	public String Hours;
+	public String Minutes;
 	private IntegerProperty age;
 	private IntegerProperty weight;
 	

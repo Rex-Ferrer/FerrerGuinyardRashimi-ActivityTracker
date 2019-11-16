@@ -38,22 +38,10 @@ public class MainViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
-    private settings sett;
+    
  // determine the starting time.
  
-	/*
-	 * Calendar calendar = GregorianCalendar.getInstance(); final Timeline
-	 * digitalTime = new Timeline( new KeyFrame(Duration.seconds(0), new
-	 * EventHandler<ActionEvent>() {
-	 * 
-	 * @Override public void handle(ActionEvent actionEvent) { Calendar calendar =
-	 * GregorianCalendar.getInstance(); String hourString = pad(2, '0',
-	 * calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-	 * String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
-	 * 
-	 * hour.setText(hourString ); min.setText( minuteString ); } } ), new
-	 * KeyFrame(Duration.seconds(1)) );
-	 */
+
     public void DigitalClock() {
 
     	final Timeline digitalTime = new Timeline(
@@ -91,8 +79,6 @@ public class MainViewController implements Initializable  {
 
 	@FXML
 	private void handleAction() throws IOException {
-		
-	    System.out.println("You clicked me!");
 	    //switch scene
 	    FXMLLoader root = new FXMLLoader();
 	    stage = (Stage) hour.getScene().getWindow();
@@ -101,9 +87,7 @@ public class MainViewController implements Initializable  {
         Scene scene = new Scene(complete);	    
 	    stage.setScene(scene);	        
 	    stage.show();
-		 // Show the scene containing the MainView layout.
-		
-		
+		 
 	 }
 	
 
