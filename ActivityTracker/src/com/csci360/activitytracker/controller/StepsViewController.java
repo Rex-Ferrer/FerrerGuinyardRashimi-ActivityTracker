@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -60,6 +61,22 @@ public class StepsViewController implements Initializable  {
 	  
 	  }
     
+	  
+	  
+	  @FXML
+		private void handleInput(MouseEvent event) throws IOException {
+			FXMLLoader root = new FXMLLoader();
+		    stage = (Stage) image.getScene().getWindow(); 
+	        root.setLocation(MainApp.class.getResource("view/StepsInput.fxml"));     
+	        complete = (AnchorPane) root.load();
+	        Scene scene = new Scene(complete);	    
+		    stage.setScene(scene);       	      
+		    stage.show();
+		 	         
+		}
+ 
+	  
+	  
 	@FXML
 	private void handleAction() throws IOException {
 	

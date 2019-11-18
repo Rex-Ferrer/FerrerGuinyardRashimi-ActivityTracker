@@ -29,7 +29,7 @@
                   <ColorAdjust hue="0.16" />
                </effect>
             </ProgressBar>
-            <Text fill="WHITE" layoutX="180.0" layoutY="20.0" onMouseClicked="#openInput" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+            <Text fill="WHITE" layoutX="180.0" layoutY="20.0" onMouseClicked="#handleInput" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
                <font>
                   <Font name="Lucida Console" size="20.0" />
                </font>
