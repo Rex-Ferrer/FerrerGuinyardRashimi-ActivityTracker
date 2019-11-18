@@ -83,11 +83,11 @@ public class CaloriesInputViewController implements Initializable  {
 		FXMLLoader root = new FXMLLoader();
 		stage = (Stage) ok.getScene().getWindow();
 
-		root.setLocation(MainApp.class.getResource("view/StepsView.fxml"));
+		root.setLocation(MainApp.class.getResource("view/CaloriesView.fxml"));
 
 		com = (AnchorPane) root.load();
 		Scene scene = new Scene(com);
-		StepsViewController display=root.getController();
+		CaloriesViewController display=root.getController();
 
 
 		stage.setScene(scene);
