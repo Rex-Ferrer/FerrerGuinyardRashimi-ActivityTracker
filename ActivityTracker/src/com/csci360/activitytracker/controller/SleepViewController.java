@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -25,8 +24,6 @@ public class SleepViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
-    private ProgressIndicator sleep;
-    
 	@FXML
 	private void handleAction() throws IOException {
 	  //switch scene

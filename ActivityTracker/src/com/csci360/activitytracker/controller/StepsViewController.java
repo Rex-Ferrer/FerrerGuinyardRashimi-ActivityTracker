@@ -2,6 +2,7 @@ package com.csci360.activitytracker.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.csci360.activitytracker.MainApp;
@@ -11,8 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 //TODO Generate steps and push to view. Program arc to show goals.
@@ -24,7 +29,36 @@ public class StepsViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
-
+    ProgressBar stepsBar;
+    @FXML
+    private Label stepsText;
+    
+	@FXML 
+	private void openInput() throws IOException{
+		System.out.println("hi there");
+		// stepsTexts = new Label("here");
+		showInputTextDialog();
+		//System.out.println(stepsText.getText());
+	}
+	
+	
+	  private void showInputTextDialog() {
+		  
+	        TextInputDialog dialog = new TextInputDialog("10000");
+	 
+	        dialog.setTitle("Steps Goal");
+	        dialog.setHeaderText("Enter your steps goal:");
+	        dialog.setContentText("Number:");
+	 
+	        Optional<String> result = dialog.showAndWait();
+	 
+	        result.ifPresent(name -> {
+	            this.stepsText.setText(name);
+	        });
+	        
+	  
+	  }
+    
 	@FXML
 	private void handleAction() throws IOException {
 	
@@ -46,9 +80,10 @@ public class StepsViewController implements Initializable  {
 	 
 	}
 
+
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 	}
 
 }
