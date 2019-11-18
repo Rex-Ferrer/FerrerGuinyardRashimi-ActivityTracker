@@ -9,9 +9,19 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="timeLabel" layoutX="33.0" layoutY="53.0" onMouseClicked="#handleAction" text="12:00" textFill="#fffdfd">
+            <Label fx:id="hour" layoutX="36.0" layoutY="61.0" text="12" textFill="#fffcfc">
                <font>
-                  <Font name="Impact" size="62.0" />
+                  <Font name="Impact" size="64.0" />
+               </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="53.0" prefHeight="79.0" prefWidth="14.0" text=":" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="64.0" />
+               </font>
+            </Label>
+            <Label fx:id="min" layoutX="107.0" layoutY="61.0" text="00" textFill="#fffdfd">
+               <font>
+                  <Font name="Impact" size="64.0" />
                </font>
             </Label>
          </children>

@@ -1,7 +1,5 @@
 package com.csci360.activitytracker.model;
 
-//import jdk.nashorn.internal.objects.annotations.Property;
-
 public class HeartRate {
   final private int RESTING_HEART_RATE = 80;
   private int currentHeartRate;
