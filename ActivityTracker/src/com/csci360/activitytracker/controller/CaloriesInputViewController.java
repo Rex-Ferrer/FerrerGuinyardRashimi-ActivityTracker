@@ -30,7 +30,7 @@ import javafx.util.Duration;
 import com.csci360.activitytracker.MainApp;
 import com.csci360.activitytracker.settings;
 //TODO Generate time and push to view.
-public class StepsInputViewController implements Initializable  {
+public class CaloriesInputViewController implements Initializable  {
 
 	@FXML
 	private AnchorPane complete;
@@ -45,7 +45,7 @@ public class StepsInputViewController implements Initializable  {
 	public Button ok=new Button();
 
 	@FXML 
-	public Spinner<Integer> stepsSpinner;
+	public Spinner<Integer> caloriesSpinner;
 
 	@FXML
 	private Parent root;
@@ -77,8 +77,8 @@ public class StepsInputViewController implements Initializable  {
 	@FXML 
 	public void handleOk(ActionEvent event) throws IOException{
 
-		int stepsGoal = stepsSpinner.getValue();
-		System.out.println(stepsGoal);
+		int caloriesGoal = caloriesSpinner.getValue();
+		System.out.println(caloriesGoal);
 
 		FXMLLoader root = new FXMLLoader();
 		stage = (Stage) ok.getScene().getWindow();
@@ -109,7 +109,7 @@ public class StepsInputViewController implements Initializable  {
 		stage = (Stage) image.getScene().getWindow();
 		FXMLLoader roo = new FXMLLoader();
 
-		roo.setLocation(MainApp.class.getResource("view/StepsView.fxml"));
+		roo.setLocation(MainApp.class.getResource("view/CaloriesView.fxml"));
 
 		complete = (AnchorPane) roo.load();
 		Scene scen = new Scene(complete);
@@ -126,8 +126,8 @@ public class StepsInputViewController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		SpinnerValueFactory<Integer> stepsClick =  new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100000, 1000, 1000);
-		this.stepsSpinner.setValueFactory(stepsClick);
+		SpinnerValueFactory<Integer> caloriesClick =  new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10000, 100, 100);
+		this.caloriesSpinner.setValueFactory(caloriesClick);
 
 	}
 

@@ -24,7 +24,7 @@
                   <Font name="Lucida Console" size="13.0" />
                </font>
             </Label>
-            <Spinner fx:id="weight" layoutX="45.0" layoutY="86.0" prefHeight="36.0" prefWidth="111.0" />
+            <Spinner fx:id="stepsSpinner" layoutX="45.0" layoutY="86.0" prefHeight="36.0" prefWidth="111.0" />
             <Button fx:id="ok" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
          </children>
       </Pane>

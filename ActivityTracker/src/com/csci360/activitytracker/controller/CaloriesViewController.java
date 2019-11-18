@@ -17,6 +17,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -43,6 +44,17 @@ public class CaloriesViewController implements Initializable  {
 		//System.out.println(stepsText.getText());
 	}
 	
+    @FXML
+  		private void handleInput(MouseEvent event) throws IOException {
+  			FXMLLoader root = new FXMLLoader();
+  		    stage = (Stage) image.getScene().getWindow(); 
+  	        root.setLocation(MainApp.class.getResource("view/CaloriesInput.fxml"));     
+  	        complete = (AnchorPane) root.load();
+  	        Scene scene = new Scene(complete);	    
+  		    stage.setScene(scene);       	      
+  		    stage.show();
+  		 	         
+  		}
 	
 	  private void showInputTextDialog() {
 		  

@@ -64,16 +64,16 @@ public class StepsViewController implements Initializable  {
 	  
 	  
 	  @FXML
-		private void handleInput(MouseEvent event) throws IOException {
-			FXMLLoader root = new FXMLLoader();
-		    stage = (Stage) image.getScene().getWindow(); 
-	        root.setLocation(MainApp.class.getResource("view/StepsInput.fxml"));     
-	        complete = (AnchorPane) root.load();
-	        Scene scene = new Scene(complete);	    
-		    stage.setScene(scene);       	      
-		    stage.show();
-		 	         
-		}
+			private void handleInput(MouseEvent event) throws IOException {
+				FXMLLoader root = new FXMLLoader();
+			    stage = (Stage) image.getScene().getWindow(); 
+		        root.setLocation(MainApp.class.getResource("view/StepsInput.fxml"));     
+		        complete = (AnchorPane) root.load();
+		        Scene scene = new Scene(complete);	    
+			    stage.setScene(scene);       	      
+			    stage.show();
+			 	         
+			}
  
 	  
 	  

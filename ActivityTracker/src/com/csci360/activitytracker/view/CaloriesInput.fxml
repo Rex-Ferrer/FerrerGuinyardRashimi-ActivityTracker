@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.activitytracker.controller.DataInputViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.activitytracker.controller.CaloriesInputViewController">
    <children>
     <AnchorPane layoutX="86.0" layoutY="165.0" minHeight="0.0" minWidth="0.0" prefHeight="311.0" prefWidth="200.0" />
       <Pane prefHeight="207.0" prefWidth="200.0" style="-fx-background-color: #000000;">
@@ -24,7 +24,7 @@
                   <Font name="Lucida Console" size="13.0" />
                </font>
             </Label>
-            <Spinner fx:id="weight" layoutX="45.0" layoutY="86.0" prefHeight="36.0" prefWidth="111.0" />
+            <Spinner fx:id="caloriesSpinner" layoutX="45.0" layoutY="86.0" prefHeight="36.0" prefWidth="111.0" />
             <Button fx:id="ok" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
          </children>
       </Pane>
