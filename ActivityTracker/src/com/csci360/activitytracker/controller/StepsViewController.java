@@ -29,15 +29,16 @@ public class StepsViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
+    @FXML 
     ProgressBar stepsBar;
     @FXML
     private Label stepsText;
     
 	@FXML 
 	private void openInput() throws IOException{
-		System.out.println("hi there");
 		// stepsTexts = new Label("here");
 		showInputTextDialog();
+		stepsBar.setProgress(0.0);
 		//System.out.println(stepsText.getText());
 	}
 	
@@ -52,8 +53,8 @@ public class StepsViewController implements Initializable  {
 	 
 	        Optional<String> result = dialog.showAndWait();
 	 
-	        result.ifPresent(name -> {
-	            this.stepsText.setText(name);
+	        result.ifPresent(goal -> {
+	            this.stepsText.setText("0 / "+ goal );
 	        });
 	        
 	  
