@@ -24,7 +24,7 @@
             </Label>
             <Pane layoutX="144.0" layoutY="146.0" prefHeight="46.0" prefWidth="46.0">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="11.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="11.0" layoutY="20.0" onMouseClicked="#handlecal" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/calories.png" />
                      </image>
@@ -52,7 +52,7 @@
             </Pane>
             <Pane layoutX="77.0" layoutY="146.0" prefHeight="46.0" prefWidth="46.0">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="11.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="11.0" layoutY="20.0" onMouseClicked="#handleAction" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/steps.png" />
                      </image>
@@ -69,15 +69,15 @@
                   <Font name="Impact" size="64.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="46.0" text=":" textFill="WHITE">
+            <Label layoutX="74.0" layoutY="46.0" text=":" textFill="WHITE">
                <font>
                   <Font name="Impact" size="64.0" />
                </font>
                <padding>
-                  <Insets top="4.0" />
+                  <Insets left="20.0" right="20.0" />
                </padding>
             </Label>
-            <Label fx:id="min" layoutX="100.0" layoutY="52.0" onMouseClicked="#handleAction" text="00" textFill="#fffcfc">
+            <Label fx:id="min" layoutX="110.0" layoutY="52.0" text="00" textFill="#fffcfc">
                <font>
                   <Font name="Impact" size="64.0" />
                </font>

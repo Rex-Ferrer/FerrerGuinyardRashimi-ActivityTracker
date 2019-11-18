@@ -1,17 +1,14 @@
 package com.csci360.activitytracker.controller;
 
+import com.csci360.activitytracker.MainApp;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.csci360.activitytracker.MainApp;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -25,11 +22,8 @@ public class SleepViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
-    private ProgressIndicator sleep;
-    
 	@FXML
 	private void handleAction() throws IOException {
-	    System.out.println("You clicked me!");
 	  //switch scene
 	    
 	    FXMLLoader root = new FXMLLoader();

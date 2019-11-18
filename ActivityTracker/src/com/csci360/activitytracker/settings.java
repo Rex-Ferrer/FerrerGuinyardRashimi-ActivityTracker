@@ -1,17 +1,15 @@
 package com.csci360.activitytracker;
 
 //package edu.thunderBits.address.model;
-import com.csci360.activitytracker.MainApp;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.scene.control.Spinner;
 
 /*holds info about settings*/
 public class settings {
-	private String Hours;
-	private String Minutes;
+
+  public String Hours;
+  public String Minutes;
 	private IntegerProperty age;
 	private IntegerProperty weight;
 	
