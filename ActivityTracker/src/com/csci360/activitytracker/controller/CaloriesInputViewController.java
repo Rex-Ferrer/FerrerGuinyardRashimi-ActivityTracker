@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 
 //TODO Generate time and push to view.
 public class CaloriesInputViewController implements Initializable {
-
   @FXML
   public Button ok = new Button();
   @FXML
