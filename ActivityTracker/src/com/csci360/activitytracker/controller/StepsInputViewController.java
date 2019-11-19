@@ -73,7 +73,7 @@ public class StepsInputViewController implements Initializable {
     stage.setScene(scene);
 
     stage.show();
-
+    
   }
 
 

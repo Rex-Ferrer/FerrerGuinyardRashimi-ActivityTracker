@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity"
   minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0"
-  xmlns="http://javafx.com/javafx/11.0.1"
+  xmlns="http://javafx.com/javafx"
   fx:controller="com.csci360.activitytracker.controller.StepsInputViewController">
   <children>
     <AnchorPane layoutX="86.0" layoutY="165.0" minHeight="0.0" minWidth="0.0" prefHeight="311.0"

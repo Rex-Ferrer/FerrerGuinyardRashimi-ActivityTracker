@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 //TODO  Generate steps and push to view. Program arc to show goals.
 public class CaloriesViewController implements Initializable  {
 	
+	
 	@FXML
 	private AnchorPane complete;
 	@FXML 

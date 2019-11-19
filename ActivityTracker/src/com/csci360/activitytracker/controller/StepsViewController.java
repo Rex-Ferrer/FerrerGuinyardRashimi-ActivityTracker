@@ -32,6 +32,7 @@ public class StepsViewController implements Initializable  {
   @FXML
   private Label stepsText;
 
+  
   @FXML
   private void openInput() throws IOException {
     // stepsTexts = new Label("here");
