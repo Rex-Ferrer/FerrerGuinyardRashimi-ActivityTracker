@@ -1,22 +1,28 @@
 package com.csci360.activitytracker.simulator.model;
 
-import java.util.Deque;
-
+// Singleton Design Pattern
 public class Person {
 
-  private BodyState currentBodyState;
-  private Deque<BodyState> activites;
+  private static Person person;
+  private Activities schedule;
+  private int defaultAge = 21;
 
-  public BodyState getCurrentBodyState() {
-    return this.currentBodyState;
+  private Person() {
+    this.schedule = new Activities(getDefaultAge());
   }
 
-  public Deque<BodyState> getActivites() {
-    return this.activites;
+  public Person getInstance() {
+    if (person == null) {
+      person = new Person();
+    }
+    return person;
   }
 
-  public void addActivity(BodyState bodyState) {
-    this.activites.add(bodyState);
+  public Activities getSchedule() {
+    return this.schedule;
   }
 
+  public int getDefaultAge() {
+    return defaultAge;
+  }
 }

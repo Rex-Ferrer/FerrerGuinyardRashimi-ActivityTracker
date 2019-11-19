@@ -1,5 +1,6 @@
 package com.csci360.activitytracker.controller;
 
+import com.csci360.activitytracker.MainApp;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -7,11 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,12 +22,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import com.csci360.activitytracker.MainApp;
-import com.csci360.activitytracker.settings;
 //TODO Generate time and push to view. Generate data and push to view.
 
 public class TappedViewController implements Initializable  {
@@ -46,25 +40,26 @@ public class TappedViewController implements Initializable  {
 	private ImageView settings;
     private Parent root;
     private Stage stage;
-    
-    /**
+
+  /**
      * Produces the time in the format: Hours and minutes
      * @throws IOException 
      */
-    public void DigitalClock() throws IOException {
-    
-    	 Timeline digitalTime = new Timeline(
+  public void DigitalClock() throws IOException {
+
+    Timeline digitalTime = new Timeline(
 
         	      new KeyFrame(Duration.seconds(0),
 
         	        new EventHandler<ActionEvent>() {
 
-        	          @Override public void handle(ActionEvent actionEvent) {      	        	  
-         	            Calendar calendar = GregorianCalendar.getInstance();
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                      Calendar calendar = GregorianCalendar.getInstance();
         	           String hourString = pad(2, '0', calendar.get(Calendar.HOUR)   == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-        	           String minuteString= pad(2, '0', calendar.get(Calendar.MINUTE) + "");      	           
+                      String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
         	            hour.setText(hourString );
-        	            min.setText(minuteString );  
+                      min.setText(minuteString);
         	            
         	          }
 
@@ -87,12 +82,12 @@ public class TappedViewController implements Initializable  {
 
     private void initClock() {
 
-        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E MMM dd yyyy ");
-            date.setText(LocalDateTime.now().format(formatter));
-        }), new KeyFrame(Duration.seconds(1)));
-        clock.setCycleCount(Animation.INDEFINITE);
-        clock.play();
+      Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E MMM dd yyyy ");
+        date.setText(LocalDateTime.now().format(formatter));
+      }), new KeyFrame(Duration.seconds(1)));
+      clock.setCycleCount(Animation.INDEFINITE);
+      clock.play();
     }
     
     /**
@@ -116,7 +111,7 @@ public class TappedViewController implements Initializable  {
      * @throws IOException
      */
 	@FXML
-	private void handleAction(MouseEvent event) throws IOException { 
+  private void handleAction(MouseEvent event) throws IOException {
 	     //switch scene
 	    stage = (Stage) hour.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
@@ -149,7 +144,7 @@ public class TappedViewController implements Initializable  {
 	 * @throws IOException
 	 */
 	@FXML
-	private void handlecal(MouseEvent event) throws IOException {	    
+  private void handlecal(MouseEvent event) throws IOException {
 	     //switch scene
 	    stage = (Stage) hour.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
@@ -168,9 +163,9 @@ public class TappedViewController implements Initializable  {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		try {
-			DigitalClock() ;
-			
-			initClock();
+      DigitalClock();
+
+      initClock();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

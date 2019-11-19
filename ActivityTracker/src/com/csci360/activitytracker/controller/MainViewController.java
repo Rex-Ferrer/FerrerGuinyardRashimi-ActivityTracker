@@ -1,16 +1,12 @@
 package com.csci360.activitytracker.controller;
 //import com.csci360.activitytracker.view.TappedView.fxml;
-import com.csci360.activitytracker.MainApp;
-import com.csci360.activitytracker.settings;
 
+import com.csci360.activitytracker.MainApp;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-//import java.time.Duration;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-import javafx.util.Duration;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -25,81 +21,85 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+//import java.time.Duration;
 //TODO Generate time and push to view.
 public class MainViewController implements Initializable  {
 
-	@FXML
-	private AnchorPane complete;
-	@FXML 
-	private Label hour;
-	@FXML
-	private Label min;
-	@FXML
-	private ImageView image;
-    private Parent root;
-    private Stage stage;
-    
- // determine the starting time.
- 
+  @FXML
+  private AnchorPane complete;
+  @FXML
+  private Label hour;
+  @FXML
+  private Label min;
+  @FXML
+  private ImageView image;
+  private Parent root;
+  private Stage stage;
 
-    public void DigitalClock() {
+  // determine the starting time.
 
-    	final Timeline digitalTime = new Timeline(
-      	      new KeyFrame(Duration.seconds(0),
-      	        new EventHandler<ActionEvent>() {
-      	          @Override public void handle(ActionEvent actionEvent) {
-        
-                    Calendar calendar=new GregorianCalendar();
 
-                    String hourString = pad(2, '0',
-                    	calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-                    String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
-              
-                   hour.setText(hourString); 
-                   min.setText(minuteString); 
+  public void DigitalClock() {
 
-                }
-      	        
-  	        }
-  	      ),
-  	      new KeyFrame(Duration.seconds(1))
-  	    );
-    	digitalTime.setCycleCount(Animation.INDEFINITE);
-		digitalTime.play();
+    final Timeline digitalTime = new Timeline(
+        new KeyFrame(Duration.seconds(0),
+            new EventHandler<ActionEvent>() {
+              @Override public void handle(ActionEvent actionEvent) {
+
+                Calendar calendar=new GregorianCalendar();
+
+                String hourString = pad(2, '0',
+                    calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
+                String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
+
+                hour.setText(hourString);
+                min.setText(minuteString);
+
+              }
+
+            }
+        ),
+        new KeyFrame(Duration.seconds(1))
+    );
+    digitalTime.setCycleCount(Animation.INDEFINITE);
+    digitalTime.play();
+  }
+
+  private MainApp mainApp;
+
+  private String pad(int fieldWidth, char padChar, String s) {
+    StringBuilder sb = new StringBuilder();
+    for (int i = s.length(); i < fieldWidth; i++) {
+      sb.append(padChar);
     }
-	private MainApp mainApp;
-    private String pad(int fieldWidth, char padChar, String s) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = s.length(); i < fieldWidth; i++) {
-          sb.append(padChar);
-        }
-        sb.append(s);
-        return sb.toString();
-      }
+    sb.append(s);
+    return sb.toString();
+  }
 
-	@FXML
-	private void handleAction() throws IOException {
-	    //switch scene
-	    FXMLLoader root = new FXMLLoader();
-	    stage = (Stage) hour.getScene().getWindow();
-        root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));        
-        complete = (AnchorPane) root.load();
-        Scene scene = new Scene(complete);	    
-	    stage.setScene(scene);	        
-	    stage.show();
-		 
-	 }
-	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		//
-		DigitalClock() ;
-		
-	}
+  @FXML
+  private void handleAction() throws IOException {
+    //switch scene
+    FXMLLoader root = new FXMLLoader();
+    stage = (Stage) hour.getScene().getWindow();
+    root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
+    complete = (AnchorPane) root.load();
+    Scene scene = new Scene(complete);
+    stage.setScene(scene);
+    stage.show();
+
+  }
+
+  @Override
+  public void initialize(URL arg0, ResourceBundle arg1) {
+    // TODO Auto-generated method stub
+    //
+    DigitalClock() ;
+
+  }
 
 //}
-
 
 
 }

@@ -1,16 +1,10 @@
 package com.csci360.activitytracker.controller;
 
+import com.csci360.activitytracker.MainApp;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,15 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
-import com.csci360.activitytracker.MainApp;
-import com.csci360.activitytracker.settings;
 //TODO Generate time and push to view.
 public class DataInputViewController implements Initializable  {
 	
@@ -40,8 +29,8 @@ public class DataInputViewController implements Initializable  {
 	private ImageView image;
 	@FXML
 	public Button ok=new Button();
-	
-	  @FXML public Spinner<Integer> hour;
+
+  @FXML public Spinner<Integer> hour;
 	  
 	  @FXML public Spinner<Integer> min;
 	 
@@ -52,13 +41,13 @@ public class DataInputViewController implements Initializable  {
     
 	@FXML
 	private Label timeLabel;
-	
-	@FXML
+
+  @FXML
     private Parent root;
 	@FXML
     private Parent roo;
-	
-	@FXML
+
+  @FXML
     private Stage stage;
 	@FXML
     public boolean okClicked=true ;
@@ -79,27 +68,27 @@ public class DataInputViewController implements Initializable  {
 	  @FXML 
 	  public void handleOk(ActionEvent event) throws IOException{
 
-		  int hour_o=hour.getValue();
-		  int min_o=min.getValue();
+      int hour_o = hour.getValue();
+      int min_o = min.getValue();
 		  
 	 	  FXMLLoader root = new FXMLLoader();
-	 	stage = (Stage) ok.getScene().getWindow();
+      stage = (Stage) ok.getScene().getWindow();
 
       root.setLocation(MainApp.class.getResource("view/UserTapped.fxml"));
       
       com = (AnchorPane) root.load();
       Scene scene = new Scene(com);
-      UserTappedViewController display=root.getController();
-	 	 display.DigitalClock(hour_o,min_o);
+      UserTappedViewController display = root.getController();
+      display.DigitalClock(hour_o, min_o);
 
 	    stage.setScene(scene);
 	    
 	    stage.show();
 	    
 	  }
-	
-    
-   /**
+
+
+  /**
     * When the back arrow image is clicked a new interface appears
     * @throws IOException
     */
@@ -107,8 +96,8 @@ public class DataInputViewController implements Initializable  {
 	private void handleAction(MouseEvent event) throws IOException {
 	    //switch scene
 	    isOkClicked();
-		
-	    stage = (Stage) image.getScene().getWindow();
+
+    stage = (Stage) image.getScene().getWindow();
 	    FXMLLoader roo = new FXMLLoader();
 	   
        roo.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
@@ -135,9 +124,8 @@ public class DataInputViewController implements Initializable  {
 		  SpinnerValueFactory<Integer> minClick =  new
 		  SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
 		  this.min.setValueFactory(minClick);
-  
-		 
-	     SpinnerValueFactory<Integer> valueAge = //
+
+    SpinnerValueFactory<Integer> valueAge = //
 	                new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 12);
 	            this.age.setValueFactory(valueAge);
 	                

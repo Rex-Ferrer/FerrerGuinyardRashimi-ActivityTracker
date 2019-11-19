@@ -9,37 +9,45 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.activitytracker.controller.StepsViewController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity"
+  minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0"
+  xmlns="http://javafx.com/javafx/11.0.1"
+  fx:controller="com.csci360.activitytracker.controller.StepsViewController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="image" fitHeight="52.0" fitWidth="52.0" layoutX="74.0" layoutY="48.0" onMouseClicked="#handleAction" pickOnBounds="true" preserveRatio="true">
+           <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="74.0" layoutY="48.0"
+             onMouseClicked="#handleAction" pickOnBounds="true" preserveRatio="true" fx:id="image">
                <image>
                   <Image url="@../resources/steps.png" />
                </image>
             </ImageView>
-            <Label fx:id="stepsText" alignment="CENTER" layoutX="7.0" layoutY="172.0" prefHeight="14.0" prefWidth="193.0" text="2233 steps" textAlignment="CENTER" textFill="WHITE">
+           <Label alignment="CENTER" layoutX="7.0" layoutY="172.0" prefHeight="14.0"
+             prefWidth="193.0" text="2233 steps" textAlignment="CENTER" textFill="WHITE"
+             fx:id="stepsText">
                <font>
                   <Font name="Lucida Console" size="13.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="stepsBar" layoutX="18.0" layoutY="124.0" prefHeight="20.0" prefWidth="167.0" progress="0.56">
+           <ProgressBar layoutX="18.0" layoutY="124.0" prefHeight="20.0" prefWidth="167.0"
+             progress="0.56" fx:id="stepsBar">
                <effect>
-                  <ColorAdjust hue="0.16" />
+                 <ColorAdjust hue="0.16"/>
                </effect>
-            </ProgressBar>
-            <Text fill="WHITE" layoutX="180.0" layoutY="20.0" onMouseClicked="#handleInput" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
-               <font>
-                  <Font name="Lucida Console" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="35.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps" textAlignment="CENTER" wrappingWidth="143.25390625">
-               <font>
-                  <Font name="Lucida Console" size="20.0" />
-               </font>
-            </Text>
-           
+           </ProgressBar>
+           <Text fill="WHITE" layoutX="180.0" layoutY="20.0" onMouseClicked="#handleInput"
+             strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+             <font>
+               <Font name="Lucida Console" size="20.0"/>
+             </font>
+           </Text>
+           <Text fill="WHITE" layoutX="35.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0"
+             text="Steps" textAlignment="CENTER" wrappingWidth="143.25390625">
+             <font>
+               <Font name="Lucida Console" size="20.0"/>
+             </font>
+           </Text>
+
          </children>
       </Pane>
    </children>
