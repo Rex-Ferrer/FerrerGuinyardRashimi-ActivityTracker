@@ -15,7 +15,8 @@ public class MainApp extends Application {
 	private AnchorPane rootLayout;
 
 	// Default Constructor
-	public MainApp(){};
+	public MainApp() {
+	};
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -24,11 +25,9 @@ public class MainApp extends Application {
 
 		initMainViewLayout();
 
-
-
 	}
 
-	public void initMainViewLayout(){
+	public void initMainViewLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/MainView.fxml"));
@@ -41,14 +40,12 @@ public class MainApp extends Application {
 
 			// Give MainViewController access to MainApp
 			MainViewController controller = loader.getController();
-			//controller.setMainApp(this);
+			// controller.setMainApp(this);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-
 
 	public static void main(String[] args) {
 		launch(args);
