@@ -36,14 +36,11 @@ public class CaloriesViewController implements Initializable  {
     @FXML
     private Label caloriesText;
     
-    @FXML 
-	private void openInput() throws IOException{
-		// stepsTexts = new Label("here");
-		showInputTextDialog();
-		caloriesBar.setProgress(0.0);
-		//System.out.println(stepsText.getText());
-	}
-	
+   
+    /**When the '+' is clicked, presents the goal input view.
+     * @param event
+     * @throws IOException
+     */
     @FXML
   		private void handleInput(MouseEvent event) throws IOException {
   			FXMLLoader root = new FXMLLoader();
@@ -56,24 +53,12 @@ public class CaloriesViewController implements Initializable  {
   		 	         
   		}
 	
-	  private void showInputTextDialog() {
-		  
-	        TextInputDialog dialog = new TextInputDialog("2000");
-	 
-	        dialog.setTitle("Calories Burned Goal");
-	        dialog.setHeaderText("Enter your calories burned goal:");
-	        dialog.setContentText("Number:");
-	 
-	        Optional<String> result = dialog.showAndWait();
-	 
-	        result.ifPresent(goal -> {
-	            this.caloriesText.setText("0 / "+ goal );
-	        });
-	        
 	  
-	  }
     
     
+	/**When image is clicked, presents the sleep view.
+	 * @throws IOException
+	 */
 	@FXML
 	private void handleAction() throws IOException {
 	  //switch scene
