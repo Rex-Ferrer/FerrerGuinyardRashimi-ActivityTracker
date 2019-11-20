@@ -3,6 +3,7 @@ package com.csci360.activitytracker.controller;
 
 import com.csci360.activitytracker.MainApp;
 import com.csci360.activitytracker.model.Calories;
+import com.csci360.activitytracker.simulator.HumanSimulationThread;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +31,7 @@ public class CaloriesViewController implements Initializable  {
 	private ImageView image;
 	private Parent root;
     private Stage stage;
-    
+	private HumanSimulationThread dailyActivities;
     @FXML
     private ProgressBar caloriesBar;
     @FXML
@@ -97,7 +98,6 @@ public class CaloriesViewController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
 	}
 
 }
