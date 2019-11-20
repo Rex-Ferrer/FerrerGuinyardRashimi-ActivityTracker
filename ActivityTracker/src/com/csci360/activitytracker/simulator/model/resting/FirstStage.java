@@ -1,10 +1,11 @@
-package com.csci360.activitytracker.simulator.model;
+package com.csci360.activitytracker.simulator.model.resting;
 
-public class Rem implements Sleeping {
+public class FirstStage implements NonRem {
 
-  private final double heartRate = 40.0;
+  private final double heartRate = 70.0;
   private final int stepSpeed = 0;
   private final int calorieBurnRate = 0;
+  private final int duration = 15;
 
   public double getHeartRate() {
     return this.heartRate;
@@ -16,5 +17,9 @@ public class Rem implements Sleeping {
 
   public int getCalorieBurnRate() {
     return this.calorieBurnRate;
+  }
+
+  public int getDuration() {
+    return this.duration;
   }
 }

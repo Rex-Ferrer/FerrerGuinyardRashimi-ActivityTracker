@@ -1,10 +1,11 @@
-package com.csci360.activitytracker.simulator.model;
+package com.csci360.activitytracker.simulator.model.resting;
 
-public class Sitting implements RestingState {
+public class SecondStage implements NonRem {
 
-  private final double heartRate = 80.0;
+  private final double heartRate = 60.0;
   private final int stepSpeed = 0;
   private final int calorieBurnRate = 0;
+  private final int duration = 20;
 
   public double getHeartRate() {
     return this.heartRate;

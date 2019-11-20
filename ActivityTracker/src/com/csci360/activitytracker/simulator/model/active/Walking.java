@@ -1,9 +1,9 @@
-package com.csci360.activitytracker.simulator.model;
+package com.csci360.activitytracker.simulator.model.active;
 
-public class Standing implements RestingState {
+public class Walking implements MovingState {
 
-  private final double heartRate = 80.0;
-  private final int stepSpeed = 0;
+  private final double heartRate = 90.0;
+  private final int stepSpeed = 1; // per second
   private final int calorieBurnRate = 0;
 
   public double getHeartRate() {

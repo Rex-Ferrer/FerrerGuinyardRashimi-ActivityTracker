@@ -1,4 +1,4 @@
-package com.csci360.activitytracker.simulator.model;
+package com.csci360.activitytracker.simulator.model.active;
 
 public class Running implements MovingState {
 
