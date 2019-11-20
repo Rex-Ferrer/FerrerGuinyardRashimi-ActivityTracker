@@ -32,6 +32,7 @@ public class HumanSimulationThread {
     Runnable task = new Runnable() {
       @Override
       public void run() {
+        System.out.println("Starting....");
         runSimulation();
       }
     };
