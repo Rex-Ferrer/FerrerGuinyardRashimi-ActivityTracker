@@ -70,7 +70,7 @@ public void setGoal(int goal){
       setGoal(goal);
       double total = (double) steps/goal;
       System.out.println(total);
-      stepsText.setText(steps + " / " + goal );
+      stepsText.setText(steps + " / " + goal + " steps");
       stepsBar.setProgress(total);
   }
   

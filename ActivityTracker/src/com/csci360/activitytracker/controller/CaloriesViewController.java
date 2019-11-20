@@ -2,6 +2,8 @@ package com.csci360.activitytracker.controller;
 //
 
 import com.csci360.activitytracker.MainApp;
+import com.csci360.activitytracker.model.Calories;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -61,7 +63,7 @@ public class CaloriesViewController implements Initializable  {
         setGoal(goal);
         double total = (double) calories/goal;
         System.out.println(total);
-       caloriesText.setText(calories + " / " + goal );
+       caloriesText.setText(calories + " / " + goal + " calories burned" );
         caloriesBar.setProgress(total);
     }
     
