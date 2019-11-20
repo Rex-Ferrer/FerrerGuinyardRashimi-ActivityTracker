@@ -28,31 +28,29 @@ public class CaloriesViewController implements Initializable  {
 	private ImageView image;
 	private Parent root;
     private Stage stage;
+    
+    @FXML
+    private ProgressBar caloriesBar;
+    @FXML
+    private Label caloriesText;
+    
+   
+    /**When the '+' is clicked, presents the goal input view.
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+  		private void handleInput(MouseEvent event) throws IOException {
+  			FXMLLoader root = new FXMLLoader();
+  		    stage = (Stage) image.getScene().getWindow(); 
+  	        root.setLocation(MainApp.class.getResource("view/CaloriesInput.fxml"));     
+  	        complete = (AnchorPane) root.load();
+  	        Scene scene = new Scene(complete);	    
+  		    stage.setScene(scene);       	      
+  		    stage.show();
+  		 	         
+  		}
 
-  @FXML
-  private ProgressBar caloriesBar;
-  @FXML
-  private Label caloriesText;
-
-  @FXML
-  private void openInput() throws IOException {
-    // stepsTexts = new Label("here");
-    showInputTextDialog();
-    caloriesBar.setProgress(0.0);
-    //System.out.println(stepsText.getText());
-  }
-
-  @FXML
-  private void handleInput(MouseEvent event) throws IOException {
-    FXMLLoader root = new FXMLLoader();
-    stage = (Stage) image.getScene().getWindow();
-    root.setLocation(MainApp.class.getResource("view/CaloriesInput.fxml"));
-    complete = (AnchorPane) root.load();
-    Scene scene = new Scene(complete);
-    stage.setScene(scene);
-    stage.show();
-
-  }
 
   private void showInputTextDialog() {
 
@@ -72,6 +70,9 @@ public class CaloriesViewController implements Initializable  {
   }
     
     
+	/**When image is clicked, presents the sleep view.
+	 * @throws IOException
+	 */
 	@FXML
 	private void handleAction() throws IOException {
 	  //switch scene
