@@ -19,12 +19,12 @@
 						<Image url="@../resources/steps.png" />
 					</image>
 				</ImageView>
-				<Label fx:id="stepsText" alignment="CENTER" layoutX="7.0" layoutY="172.0" prefHeight="14.0" prefWidth="193.0" text="2233/ 10000 steps" textAlignment="CENTER" textFill="WHITE">
+				<Label fx:id="stepsText" alignment="CENTER" layoutX="7.0" layoutY="172.0" prefHeight="14.0" prefWidth="193.0" text="2233/ 5000 steps" textAlignment="CENTER" textFill="WHITE">
 					<font>
 						<Font name="Lucida Console" size="13.0" />
 					</font>
 				</Label>
-				<ProgressBar fx:id="stepsBar" layoutX="18.0" layoutY="124.0" prefHeight="20.0" prefWidth="167.0" progress="0.56">
+				<ProgressBar fx:id="stepsBar" layoutX="18.0" layoutY="124.0" prefHeight="20.0" prefWidth="167.0" progress="0.44">
 					<effect>
 						<ColorAdjust hue="0.16" />
 					</effect>
