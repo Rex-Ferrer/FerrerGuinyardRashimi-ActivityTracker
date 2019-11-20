@@ -5,7 +5,7 @@ import com.csci360.activitytracker.simulator.model.Person;
 
 public class HumanSimulationThread extends Thread {
 
-  BodyState currentBodyState;
+  private BodyState currentBodyState;
   private Person person;
 
   public void run() {
@@ -24,5 +24,9 @@ public class HumanSimulationThread extends Thread {
 
   private void setCurrentBodyState() {
     this.currentBodyState = person.getSchedule().getCurrentBodyState();
+  }
+
+  public BodyState getCurrentBodyState() {
+    return this.currentBodyState;
   }
 }
