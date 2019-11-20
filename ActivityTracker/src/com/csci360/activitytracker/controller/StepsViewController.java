@@ -32,33 +32,38 @@ public class StepsViewController implements Initializable  {
   private Label stepsText;
 
   
+  private Integer goal;
+  private Integer steps;
+  
   @FXML
   private void openInput() throws IOException {
     // stepsTexts = new Label("here");
-    showInputTextDialog();
+    
     stepsBar.setProgress(0.0);
     //System.out.println(stepsText.getText());
   }
 
 
-  private void showInputTextDialog() {
+  public void setGoal(int goal){
+	    this.goal = goal;
+	    System.out.println(goal);
+	}
+  
 
-    TextInputDialog dialog = new TextInputDialog("10000");
-
-    dialog.setTitle("Steps Goal");
-    dialog.setHeaderText("Enter your steps goal:");
-    dialog.setContentText("Number:");
-
-    Optional<String> result = dialog.showAndWait();
-
-    result.ifPresent(goal -> {
-      this.stepsText.setText("0 / " + goal);
-    });
-
-
+  //Receive message from scene 1
+  public void transferMessage(int message) {
+      //Display the message
+	  
+	  steps = 300;
+      setGoal(message);
+      double total = (double) steps/message;
+      total = total * (1.0/100.0);
+      System.out.println(total);
+      stepsText.setText(steps + " / " + message );
+      stepsBar.setProgress(total);
   }
-
-
+  
+  
   @FXML
   private void handleInput(MouseEvent event) throws IOException {
     FXMLLoader root = new FXMLLoader();
@@ -82,6 +87,9 @@ public class StepsViewController implements Initializable  {
 	    stage = (Stage) image.getScene().getWindow();
         //root = FXMLLoader.load(getClass().getResource("view/TappedView.fxml"));
         root.setLocation(MainApp.class.getResource("view/CaloriesView.fxml"));
+        
+       
+        
         
         complete = (AnchorPane) root.load();
         Scene scene = new Scene(complete);

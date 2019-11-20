@@ -34,7 +34,9 @@ public class CaloriesViewController implements Initializable  {
     @FXML
     private Label caloriesText;
     
-   
+    private Integer goal;
+
+    private Integer calories;
     /**When the '+' is clicked, presents the goal input view.
      * @param event
      * @throws IOException
@@ -51,24 +53,23 @@ public class CaloriesViewController implements Initializable  {
   		 	         
   		}
 
-
-  private void showInputTextDialog() {
-
-    TextInputDialog dialog = new TextInputDialog("2000");
-
-    dialog.setTitle("Calories Burned Goal");
-    dialog.setHeaderText("Enter your calories burned goal:");
-    dialog.setContentText("Number:");
-
-    Optional<String> result = dialog.showAndWait();
-
-    result.ifPresent(goal -> {
-      this.caloriesText.setText("0 / " + goal);
-    });
-
-
-  }
+  //Receive message from scene 1
+    public void transferMessage(int message) {
+        //Display the message
+  	  
+  	  calories = 300;
+        setGoal(message);
+        double total = (double) calories/message;
+        System.out.println(total);
+       caloriesText.setText(calories + " / " + message );
+        caloriesBar.setProgress(total);
+    }
     
+
+    public void setGoal(int goal){
+  	    this.goal = goal;
+  	    System.out.println(goal);
+  	}
     
 	/**When image is clicked, presents the sleep view.
 	 * @throws IOException
@@ -90,12 +91,11 @@ public class CaloriesViewController implements Initializable  {
 	    stage.show();
 	    
 	    
-	    
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 	}
 
 }

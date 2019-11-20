@@ -58,7 +58,6 @@ public class StepsInputViewController implements Initializable {
   public void handleOk(ActionEvent event) throws IOException {
 
     int stepsGoal = stepsSpinner.getValue();
-    System.out.println(stepsGoal);
 
     FXMLLoader root = new FXMLLoader();
     stage = (Stage) ok.getScene().getWindow();
@@ -68,6 +67,7 @@ public class StepsInputViewController implements Initializable {
     com = (AnchorPane) root.load();
     Scene scene = new Scene(com);
     StepsViewController display = root.getController();
+    display.transferMessage(stepsGoal);
 
     stage.setScene(scene);
 
