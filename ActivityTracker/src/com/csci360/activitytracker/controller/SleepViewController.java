@@ -1,8 +1,11 @@
 package com.csci360.activitytracker.controller;
 
 import com.csci360.activitytracker.MainApp;
+import com.csci360.activitytracker.simulator.HumanSimulationThread;
+
 import java.io.IOException;
 import java.net.URL;
+
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +24,8 @@ public class SleepViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
+	private HumanSimulationThread dailyActivities;
+
 	@FXML
 	private void handleAction() throws IOException {
 	  //switch scene

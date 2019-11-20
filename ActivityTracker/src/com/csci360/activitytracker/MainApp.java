@@ -1,5 +1,5 @@
 package com.csci360.activitytracker;
-
+import com.csci360.activitytracker.simulator.HumanSimulationThread;
 import com.csci360.activitytracker.controller.MainViewController;
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private AnchorPane rootLayout;
-
+	private HumanSimulationThread dailyActivities;
 	// Default Constructor
 	public MainApp() {
 	};
@@ -24,6 +24,8 @@ public class MainApp extends Application {
 		this.primaryStage.setTitle("Activity Tracker");
 
 		initMainViewLayout();
+		
+		
 
 	}
 
@@ -42,6 +44,9 @@ public class MainApp extends Application {
 			MainViewController controller = loader.getController();
 			// controller.setMainApp(this);
 
+			
+			dailyActivities.getInstance();
+			dailyActivities.start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
