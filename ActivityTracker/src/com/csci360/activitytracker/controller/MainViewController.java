@@ -69,6 +69,9 @@ public class MainViewController implements Initializable  {
     digitalTime.setCycleCount(Animation.INDEFINITE);
     digitalTime.play();
   }
+  
+  
+  
 
   private MainApp mainApp;
 
@@ -99,6 +102,7 @@ public class MainViewController implements Initializable  {
     // TODO Auto-generated method stub
     //
     DigitalClock() ;
+   
 
   }
 

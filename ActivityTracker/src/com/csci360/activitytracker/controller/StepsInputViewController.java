@@ -1,9 +1,13 @@
 package com.csci360.activitytracker.controller;
 
 import com.csci360.activitytracker.MainApp;
+import com.csci360.activitytracker.simulator.HumanSimulationThread;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +42,9 @@ public class StepsInputViewController implements Initializable {
   private Parent roo;
   @FXML
   private Stage stage;
+
+  private HumanSimulationThread dailyActivities = new HumanSimulationThread();
+
 
   /**
    * The ok button was clicked
@@ -101,11 +108,9 @@ public class StepsInputViewController implements Initializable {
   }
 
 
-  public void setSpinner() {
-  }
-
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
+	  
     SpinnerValueFactory<Integer> stepsClick = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
         100000, 1000, 1000);
     this.stepsSpinner.setValueFactory(stepsClick);

@@ -1,6 +1,9 @@
 package com.csci360.activitytracker.controller;
 
 import com.csci360.activitytracker.MainApp;
+import com.csci360.activitytracker.model.Steps;
+import com.csci360.activitytracker.simulator.HumanSimulationThread;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -9,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -35,8 +39,20 @@ public class UserTappedViewController implements Initializable {
 	private Label date;
 	@FXML
 	private ImageView settings;
+	
+	@FXML
+	private Label bpm;
+	@FXML
+	private Label steps;
+	private Steps step = new Steps();
+	@FXML
+	private Label calories;
     private Parent root;
     private Stage stage;
+    private Timeline activitiesTime;
+    private HumanSimulationThread dailyActivities = new HumanSimulationThread();
+    private Thread caloriesTask;
+    
     int mill;
     int sec = 0;
 	int newT;
@@ -84,7 +100,6 @@ public class UserTappedViewController implements Initializable {
                     String h = pad(2, '0', hourr + "");
 		  	      	min.setText(m);
                     hour.setText(h);
-		  	      				
 		  	          }}
 		  	        
 		  	      ),
@@ -102,6 +117,7 @@ public class UserTappedViewController implements Initializable {
     Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E MMM dd yyyy ");
       date.setText(LocalDateTime.now().format(formatter));
+
     }), new KeyFrame(Duration.seconds(1)));
     clock.setCycleCount(Animation.INDEFINITE);
     clock.play();
@@ -176,16 +192,39 @@ public class UserTappedViewController implements Initializable {
 	    stage.show();
 	}
 
+	
+	Task task = new Task<Void>() {
+		@Override public Void call() {
+			System.out.println("Starting Task");
+
+			int incrementSteps = dailyActivities.getCurrentBodyState().getStepSpeed();
+			System.out.println(incrementSteps);
+			return null;
+		}
+		
+	};
+	
+	public void Random() {
+		System.out.println("THis printed");
+	}
+	
+	
+  
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-				try {
-					DigitalClock(0, 0);
-					initClock();
-               } catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		new Thread(task).start();
+
+		try {
+			DigitalClock(0, 0);
+			initClock();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 	}
 

@@ -1,5 +1,7 @@
 package com.csci360.activitytracker.simulator;
 
+import java.util.concurrent.TimeUnit;
+
 import com.csci360.activitytracker.simulator.model.BodyState;
 import com.csci360.activitytracker.simulator.model.Person;
 
@@ -8,24 +10,31 @@ public class HumanSimulationThread {
 
   private static HumanSimulationThread humanSimulationThread;
   private BodyState currentBodyState;
-  private Person person;
+  private Person person = new Person();
 
 
-  private HumanSimulationThread() {
+  public HumanSimulationThread() {
   }
 
   private void runSimulation() {
-    person = person.getInstance();
+   //Person person = new Person();
+	  System.out.println("Starting run....");
+	  person = Person.getInstance();
 
     for (BodyState bodyState : person.getSchedule().getActivities()) {
       currentBodyState = bodyState;
-
+      //System.out.println("Incrementing steps by " + currentBodyState.getStepSpeed());
+      //System.out.println("Current heart rate is " + currentBodyState.getHeartRate());
+      //System.out.println("Calorie Burn Rate is " + currentBodyState.getCalorieBurnRate());
+      //System.out.println("--------------------------------------------------------------------");
       try {
-        wait(10);
+        TimeUnit.SECONDS.sleep(10);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
+      System.out.println("Single state completed.");
     }
+    
   }
 
   public void startSimulation() {
@@ -34,12 +43,14 @@ public class HumanSimulationThread {
       public void run() {
         System.out.println("Starting....");
         runSimulation();
+        System.out.println("Simulation completed");
       }
     };
 
     Thread backgroundThread = new Thread(task);
     backgroundThread.setDaemon(true);
     backgroundThread.start();
+    
   }
 
   public synchronized HumanSimulationThread getInstance() {
@@ -55,5 +66,10 @@ public class HumanSimulationThread {
 
   public BodyState getCurrentBodyState() {
     return this.currentBodyState;
+  }
+  
+  public Person getPerson() {
+	  
+	  return this.person;
   }
 }
