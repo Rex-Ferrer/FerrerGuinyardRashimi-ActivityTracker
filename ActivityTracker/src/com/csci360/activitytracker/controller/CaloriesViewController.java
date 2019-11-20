@@ -34,7 +34,7 @@ public class CaloriesViewController implements Initializable  {
     @FXML
     private Label caloriesText;
     
-    private Integer goal;
+    private Integer userGoal;
 
     private Integer calories;
     /**When the '+' is clicked, presents the goal input view.
@@ -42,7 +42,7 @@ public class CaloriesViewController implements Initializable  {
      * @throws IOException
      */
     @FXML
-  		private void handleInput(MouseEvent event) throws IOException {
+  		private void onGoalClicked(MouseEvent event) throws IOException {
   			FXMLLoader root = new FXMLLoader();
   		    stage = (Stage) image.getScene().getWindow(); 
   	        root.setLocation(MainApp.class.getResource("view/CaloriesInput.fxml"));     
@@ -54,20 +54,20 @@ public class CaloriesViewController implements Initializable  {
   		}
 
   //Receive message from scene 1
-    public void transferMessage(int message) {
+    public void displayGoalChangeInput(int goal) {
         //Display the message
   	  
   	  calories = 300;
-        setGoal(message);
-        double total = (double) calories/message;
+        setGoal(goal);
+        double total = (double) calories/goal;
         System.out.println(total);
-       caloriesText.setText(calories + " / " + message );
+       caloriesText.setText(calories + " / " + goal );
         caloriesBar.setProgress(total);
     }
     
 
     public void setGoal(int goal){
-  	    this.goal = goal;
+  	    this.userGoal = goal;
   	    System.out.println(goal);
   	}
     
