@@ -67,7 +67,7 @@ public class StepsInputViewController implements Initializable {
     com = (AnchorPane) root.load();
     Scene scene = new Scene(com);
     StepsViewController display = root.getController();
-    display.transferMessage(stepsGoal);
+    display.displayGoalChangeInput(stepsGoal);
 
     stage.setScene(scene);
 
