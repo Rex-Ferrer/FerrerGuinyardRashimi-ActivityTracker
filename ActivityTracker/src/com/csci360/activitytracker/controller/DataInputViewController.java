@@ -125,12 +125,12 @@ public class DataInputViewController implements Initializable  {
 		  SpinnerValueFactory.IntegerSpinnerValueFactory(00, 59, 00);
 		  this.min.setValueFactory(minClick);
 
-    SpinnerValueFactory<Integer> valueAge = //
-	                new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 12);
+		  SpinnerValueFactory<Integer> valueAge = //
+	      new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 98, 21);
 	            this.age.setValueFactory(valueAge);
 	                
 	     SpinnerValueFactory<Integer> valueWeight = //
-	                new SpinnerValueFactory.IntegerSpinnerValueFactory(98, 400, 130);
+	      new SpinnerValueFactory.IntegerSpinnerValueFactory(98, 400, 130);
 	            this.weight.setValueFactory(valueWeight);
 	            
 	}
