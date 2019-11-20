@@ -1,5 +1,14 @@
 package com.csci360.activitytracker.simulator.model;
 
+import com.csci360.activitytracker.simulator.model.active.Jogging;
+import com.csci360.activitytracker.simulator.model.active.Running;
+import com.csci360.activitytracker.simulator.model.active.Walking;
+import com.csci360.activitytracker.simulator.model.resting.FirstStage;
+import com.csci360.activitytracker.simulator.model.resting.Rem;
+import com.csci360.activitytracker.simulator.model.resting.SecondStage;
+import com.csci360.activitytracker.simulator.model.resting.Sitting;
+import com.csci360.activitytracker.simulator.model.resting.Standing;
+import com.csci360.activitytracker.simulator.model.resting.ThirdStage;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
