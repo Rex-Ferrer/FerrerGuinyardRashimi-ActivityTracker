@@ -48,7 +48,7 @@ public class StepsViewController implements Initializable  {
   private Label stepsText;
 
   
-  private Integer goal;
+  private Integer userGoal;
   private Integer steps;
   
  
@@ -57,23 +57,23 @@ public class StepsViewController implements Initializable  {
  * @param goal
  */
 public void setGoal(int goal){
-	    this.goal = goal;
-	    System.out.println(goal);
+	    this.userGoal = goal;
 	}
   
 
 /**Transfer goal from StepsInputView to StepView.
  * 
- * @param message
+ * @param goal
  */
-  public void displayGoalChangeInput(int message) {
+  public void displayGoalChangeInput(int goal) {
 	  steps = 1000;
-      setGoal(message);
-      double total = (double) steps/message;
+      setGoal(goal);
+      double total = (double) steps/goal;
       System.out.println(total);
-      stepsText.setText(steps + " / " + message );
+      stepsText.setText(steps + " / " + goal );
       stepsBar.setProgress(total);
   }
+  
   
   
   @FXML

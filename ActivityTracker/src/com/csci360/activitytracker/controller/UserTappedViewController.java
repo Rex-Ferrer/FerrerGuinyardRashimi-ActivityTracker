@@ -38,8 +38,8 @@ public class UserTappedViewController implements Initializable {
     private Parent root;
     private Stage stage;
     int mill;
-  int sec = 0;
-	int t;
+    int sec = 0;
+	int newT;
 
 
   /**
@@ -57,35 +57,32 @@ public class UserTappedViewController implements Initializable {
 		  	          @Override public void handle(ActionEvent actionEvent) {
 
                     if(mill<1000) {
-		  	      					mill=0;
-  	      							sec++;
-  	      							      								  	      							
-  	      						}
-		  	      						if(sec>59) {
-		  	      							mill=0;
-		  	      							sec=0;
-                            minn++;
-		  	      								  	      							
-		  	      						}
+		  	      		mill=0;
+  	      				sec++;				      								  	      							
+  	      			}
+		  	      	if(sec>59) {
+		  	      		mill=0;
+		  	      		sec=0;
+                        minn++;		  	      							
+		  	      	}
                     if (minn > 59) {
-		  	      							mill=0;
-		  	      							sec=0;
-                      minn = 0;
-                      hourr++;
-		  	      						
-		  	      						}
+		  	      		mill=0;
+		  	      		sec=0;
+                        minn = 0;
+                        hourr++;
+		  	      	}
                     if (hourr > 12) {
-	  	      							sec=0;
-	  	      							mill=0;
-                      minn = 0;
-                      hourr = 1;
-	  	      							t++;
-	  	      								  	      							
-	  	      						}
-		  	      						mill++;
+	  	      			sec=0;
+	  	      			mill=0;
+                        minn = 0;
+                        hourr = 1;
+	  	      			newT++;			  	      							
+	  	      		}
+		  	      	mill++;
+		  	      	
                     String m = pad(2, '0', minn + "");
                     String h = pad(2, '0', hourr + "");
-		  	      						min.setText(m);
+		  	      	min.setText(m);
                     hour.setText(h);
 		  	      				
 		  	          }}
@@ -126,6 +123,7 @@ public class UserTappedViewController implements Initializable {
         sb.append(s);
         return sb.toString();
       }
+		
 	 /**
      * When the user clicks either the feet or somewhere close to the hour in time, a 
      * new interface will open up
@@ -161,10 +159,14 @@ public class UserTappedViewController implements Initializable {
 	 	         
 	}
 	@FXML
+	/**
+	 * On mouse click of fire image it goes to calories view
+	 * @param event
+	 * @throws IOException
+	 */
 	private void handlecal(MouseEvent event) throws IOException {
 	     //switch scene
-
-    stage = (Stage) hour.getScene().getWindow();
+		stage = (Stage) hour.getScene().getWindow();
 	    FXMLLoader root = new FXMLLoader();
 	    stage = (Stage) hour.getScene().getWindow();
         root.setLocation(MainApp.class.getResource("view/CaloriesView.fxml"));    
@@ -179,9 +181,8 @@ public class UserTappedViewController implements Initializable {
 		// TODO Auto-generated method stub
 				try {
 					DigitalClock(0, 0);
-          initClock();
-          //Date();
-        } catch (IOException e) {
+					initClock();
+               } catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
