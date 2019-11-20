@@ -68,7 +68,7 @@ public class CaloriesInputViewController implements Initializable {
     com = (AnchorPane) root.load();
     Scene scene = new Scene(com);
     CaloriesViewController display = root.getController();
-    display.transferMessage(caloriesGoal);
+    display.displayGoalChangeInput(caloriesGoal);
 
     stage.setScene(scene);
 
