@@ -11,7 +11,7 @@ public class Person {
     this.schedule = new Activities(getDefaultAge());
   }
 
-  public Person getInstance() {
+  public synchronized Person getInstance() {
     if (person == null) {
       person = new Person();
     }
