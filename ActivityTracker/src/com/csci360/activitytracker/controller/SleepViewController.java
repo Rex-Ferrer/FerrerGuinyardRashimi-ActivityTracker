@@ -79,6 +79,7 @@ public class SleepViewController implements Initializable  {
 			  int increm=0;
 			  @Override public void handle(ActionEvent actionEvent) {
 			  
+				  
 			  if(increm<360) {
 
 				  int random = (int )(Math.random() * 60 + 1);
