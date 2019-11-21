@@ -211,7 +211,35 @@ public class UserTappedViewController implements Initializable {
 	public void Random() {
 		System.out.println("THis printed");
 	}
-	
+	final Timeline daa = new Timeline(
+			  
+			  new KeyFrame(Duration.seconds(0), 
+					  new EventHandler<ActionEvent>() {
+			  int increm=1000;
+			  @Override public void handle(ActionEvent actionEvent) {
+			  
+			  if(increm<10000000) {
+				  increm=increm+1000;
+			  }
+			  
+			  steps.setText(String.valueOf(increm)); }}
+			  
+			  ), new KeyFrame(Duration.seconds(3)) );
+	final Timeline call = new Timeline(
+			  
+			  new KeyFrame(Duration.seconds(0), 
+					  new EventHandler<ActionEvent>() {
+			  int increm=100;
+			  @Override public void handle(ActionEvent actionEvent) {
+			  
+			  if(increm<10000000) {
+				  increm=increm+100;
+			  }
+			  
+			  calories.setText(String.valueOf(increm)); }}
+			  
+			  ), new KeyFrame(Duration.seconds(3)) );
+			  	          
 	
   
 	
@@ -220,7 +248,8 @@ public class UserTappedViewController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		new Thread(task).start();
-
+		daa.setCycleCount(Animation.INDEFINITE); daa.play();
+		call.setCycleCount(Animation.INDEFINITE); call.play();
 		
 		try {
 			DigitalClock(0, 0);

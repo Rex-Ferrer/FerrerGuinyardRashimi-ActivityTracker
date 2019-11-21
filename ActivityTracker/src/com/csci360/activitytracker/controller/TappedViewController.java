@@ -35,6 +35,13 @@ public class TappedViewController implements Initializable  {
 	@FXML 
 	private Label min;
 	@FXML
+	private Label bpm;
+	@FXML
+	private Label steps;
+	//private Steps step = new Steps();
+	@FXML
+	private Label calories;
+	@FXML
 	private Label date;
 	@FXML
 	private ImageView settings;
@@ -155,13 +162,44 @@ public class TappedViewController implements Initializable  {
 	    stage.setScene(scene);   
 	    stage.show();
 	}
-
+	final Timeline daa = new Timeline(
+			  
+			  new KeyFrame(Duration.seconds(0), 
+					  new EventHandler<ActionEvent>() {
+			  int increm=1000;
+			  @Override public void handle(ActionEvent actionEvent) {
+			  
+			  if(increm<10000000) {
+				  increm=increm+1000;
+			  }
+			  
+			  steps.setText(String.valueOf(increm)); }}
+			  
+			  ), new KeyFrame(Duration.seconds(3)) );
+	final Timeline call = new Timeline(
+			  
+			  new KeyFrame(Duration.seconds(0), 
+					  new EventHandler<ActionEvent>() {
+			  int increm=100;
+			  @Override public void handle(ActionEvent actionEvent) {
+			  
+			  if(increm<10000000) {
+				  increm=increm+100;
+			  }
+			  
+			  calories.setText(String.valueOf(increm)); }}
+			  
+			  ), new KeyFrame(Duration.seconds(3)) );
+			  	          
+	
 	/**
 	 * Start clock and date
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		daa.setCycleCount(Animation.INDEFINITE); daa.play();
+		call.setCycleCount(Animation.INDEFINITE); call.play();
 		try {
       DigitalClock();
 
