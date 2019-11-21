@@ -174,6 +174,10 @@ public class UserTappedViewController implements Initializable {
 	    stage.show();
 	 	         
 	}
+	
+	
+	
+	
 	@FXML
 	/**
 	 * On mouse click of fire image it goes to calories view
@@ -217,6 +221,7 @@ public class UserTappedViewController implements Initializable {
 		// TODO Auto-generated method stub
 		new Thread(task).start();
 
+		
 		try {
 			DigitalClock(0, 0);
 			initClock();

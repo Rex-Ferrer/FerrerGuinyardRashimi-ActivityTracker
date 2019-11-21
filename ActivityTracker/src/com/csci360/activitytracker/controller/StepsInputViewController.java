@@ -110,7 +110,7 @@ public class StepsInputViewController implements Initializable {
 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
-	  
+
     SpinnerValueFactory<Integer> stepsClick = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
         100000, 1000, 1000);
     this.stepsSpinner.setValueFactory(stepsClick);
