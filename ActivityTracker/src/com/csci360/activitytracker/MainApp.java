@@ -1,13 +1,13 @@
 package com.csci360.activitytracker;
-import com.csci360.activitytracker.simulator.HumanSimulationThread;
-import com.csci360.activitytracker.controller.MainViewController;
-import java.io.IOException;
 
+import com.csci360.activitytracker.controller.MainViewController;
+import com.csci360.activitytracker.simulator.HumanSimulationThread;
+import java.io.IOException;
 import javafx.application.Application;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
@@ -16,10 +16,10 @@ public class MainApp extends Application {
 	private static HumanSimulationThread dailyActivities;
 	// Default Constructor
 	public MainApp() {
-	};
+  }
 
 	@Override
-	public void start(Stage primaryStage) throws IOException,Exception {
+  public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Activity Tracker");
 
@@ -42,7 +42,7 @@ public class MainApp extends Application {
 
 			// Give MainViewController access to MainApp
 			MainViewController controller = loader.getController();
-			// controller.setMainApp(this);
+//			 controller.setMainApp(this);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,7 +51,6 @@ public class MainApp extends Application {
 
 	public static void main(String[] args) {
 		HumanSimulationThread dailyActivities = new HumanSimulationThread();
-		dailyActivities.getInstance();
 		dailyActivities.startSimulation();
 	    System.out.println(Thread.currentThread().getName() +"returned");
 

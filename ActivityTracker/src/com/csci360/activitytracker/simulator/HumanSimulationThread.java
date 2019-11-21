@@ -1,9 +1,8 @@
 package com.csci360.activitytracker.simulator;
 
-import java.util.concurrent.TimeUnit;
-
 import com.csci360.activitytracker.simulator.model.BodyState;
 import com.csci360.activitytracker.simulator.model.Person;
+import java.util.concurrent.TimeUnit;
 
 //Singleton Thread
 public class HumanSimulationThread {
@@ -16,6 +15,26 @@ public class HumanSimulationThread {
   public HumanSimulationThread() {
   }
 
+  public static synchronized HumanSimulationThread getInstance() {
+    if (humanSimulationThread == null) {
+      humanSimulationThread = new HumanSimulationThread();
+    }
+    return humanSimulationThread;
+  }
+
+  public void startSimulation() {
+    Runnable task = () -> {
+      System.out.println("Starting....");
+      runSimulation();
+      System.out.println("Simulation completed");
+    };
+
+    Thread backgroundThread = new Thread(task);
+    backgroundThread.setDaemon(true);
+    backgroundThread.start();
+
+  }
+
   private void runSimulation() {
    //Person person = new Person();
 	  System.out.println("Starting run....");
@@ -23,41 +42,18 @@ public class HumanSimulationThread {
 
     for (BodyState bodyState : person.getSchedule().getActivities()) {
       currentBodyState = bodyState;
-      //System.out.println("Incrementing steps by " + currentBodyState.getStepSpeed());
-      //System.out.println("Current heart rate is " + currentBodyState.getHeartRate());
-      //System.out.println("Calorie Burn Rate is " + currentBodyState.getCalorieBurnRate());
-      //System.out.println("--------------------------------------------------------------------");
+      System.out.println("Incrementing steps by " + currentBodyState.getStepSpeed());
+      System.out.println("Current heart rate is " + currentBodyState.getHeartRate());
+      System.out.println("Calorie Burn Rate is " + currentBodyState.getCalorieBurnRate());
+      System.out.println("--------------------------------------------------------------------");
       try {
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(15);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
       System.out.println("Single state completed.");
     }
-    
-  }
 
-  public void startSimulation() {
-    Runnable task = new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("Starting....");
-        runSimulation();
-        System.out.println("Simulation completed");
-      }
-    };
-
-    Thread backgroundThread = new Thread(task);
-    backgroundThread.setDaemon(true);
-    backgroundThread.start();
-    
-  }
-
-  public synchronized HumanSimulationThread getInstance() {
-    if (humanSimulationThread == null) {
-      humanSimulationThread = new HumanSimulationThread();
-    }
-    return humanSimulationThread;
   }
 
   private void setCurrentBodyState() {
@@ -69,7 +65,11 @@ public class HumanSimulationThread {
   }
   
   public Person getPerson() {
-	  
 	  return this.person;
   }
+
+  public int getSteps() {
+    return this.currentBodyState.getStepSpeed();
+  }
+
 }

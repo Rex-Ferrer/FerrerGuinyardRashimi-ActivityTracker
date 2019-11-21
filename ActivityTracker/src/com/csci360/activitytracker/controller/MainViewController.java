@@ -3,7 +3,6 @@ package com.csci360.activitytracker.controller;
 
 import com.csci360.activitytracker.MainApp;
 import com.csci360.activitytracker.simulator.HumanSimulationThread;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
@@ -12,8 +11,6 @@ import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -48,20 +45,16 @@ public class MainViewController implements Initializable  {
 
     final Timeline digitalTime = new Timeline(
         new KeyFrame(Duration.seconds(0),
-            new EventHandler<ActionEvent>() {
-              @Override public void handle(ActionEvent actionEvent) {
+            actionEvent -> {
 
-                Calendar calendar=new GregorianCalendar();
+              Calendar calendar = new GregorianCalendar();
 
-                String hourString = pad(2, '0',
-                    calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
-                String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
+              String hourString = pad(2, '0',
+                  calendar.get(Calendar.HOUR) == 0 ? "12" : calendar.get(Calendar.HOUR) + "");
+              String minuteString = pad(2, '0', calendar.get(Calendar.MINUTE) + "");
 
-                hour.setText(hourString);
-                min.setText(minuteString);
-
-              }
-
+              hour.setText(hourString);
+              min.setText(minuteString);
             }
         ),
         new KeyFrame(Duration.seconds(1))
@@ -90,7 +83,7 @@ public class MainViewController implements Initializable  {
     FXMLLoader root = new FXMLLoader();
     stage = (Stage) hour.getScene().getWindow();
     root.setLocation(MainApp.class.getResource("view/TappedView.fxml"));
-    complete = (AnchorPane) root.load();
+    complete = root.load();
     Scene scene = new Scene(complete);
     stage.setScene(scene);
     stage.show();
