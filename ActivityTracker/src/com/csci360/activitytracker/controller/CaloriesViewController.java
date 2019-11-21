@@ -9,6 +9,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 //TODO  Generate steps and push to view. Program arc to show goals.
 public class CaloriesViewController implements Initializable  {
@@ -37,7 +44,7 @@ public class CaloriesViewController implements Initializable  {
     @FXML
     private Label caloriesText;
     
-    private Integer userGoal;
+    private Integer userGoal = 200;
 
     private Integer calories;
     /**When the '+' is clicked, presents the goal input view.
@@ -60,12 +67,11 @@ public class CaloriesViewController implements Initializable  {
     public void displayGoalChangeInput(int goal) {
         //Display the message
   	  
-  	  calories = 300;
         setGoal(goal);
-        double total = (double) calories/goal;
+       /* double total = (double) calories/goal;
         System.out.println(total);
        caloriesText.setText(calories + " / " + goal + " calories" );
-        caloriesBar.setProgress(total);
+        caloriesBar.setProgress(total);*/
     }
     
 
@@ -73,6 +79,9 @@ public class CaloriesViewController implements Initializable  {
   	    this.userGoal = goal;
   	    System.out.println(goal);
   	}
+    
+    
+   
     
 	/**When image is clicked, presents the sleep view.
 	 * @throws IOException
@@ -95,10 +104,30 @@ public class CaloriesViewController implements Initializable  {
 	    
 	    
 	}
+	
+	final Timeline daa = new Timeline(
+			  
+			  new KeyFrame(Duration.seconds(0), 
+					  new EventHandler<ActionEvent>() {
+			  int increm=0;
+			  @Override public void handle(ActionEvent actionEvent) {
+			  
+			  if(increm<1500) {
+				  increm=increm+3;
+			  }
+			  
+			  caloriesText.setText(String.valueOf(increm) + " / " + userGoal + " calories");
+			  
+			  double progress = ((double) increm) / userGoal;
+			  caloriesBar.setProgress(progress);
+}}
+			  
+			  ), new KeyFrame(Duration.seconds(1)) );
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		daa.setCycleCount(Animation.INDEFINITE); daa.play();
 	    System.out.println(Thread.currentThread().getName() +"returned");
 	}
 

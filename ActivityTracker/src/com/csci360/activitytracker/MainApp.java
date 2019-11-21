@@ -52,7 +52,7 @@ public class MainApp extends Application {
 	public static void main(String[] args) {
 		HumanSimulationThread dailyActivities = new HumanSimulationThread();
 		dailyActivities.startSimulation();
-	    System.out.println(Thread.currentThread().getName() +"returned");
+	    System.out.println(Thread.currentThread().getName() + "returned");
 
 		launch(args);
 
