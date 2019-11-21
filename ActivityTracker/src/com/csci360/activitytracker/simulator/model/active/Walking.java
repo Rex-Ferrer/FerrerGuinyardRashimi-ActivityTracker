@@ -4,7 +4,7 @@ public class Walking implements MovingState {
 
   private final double heartRate = 90.0;
   private final int stepSpeed = 1; // per second
-  private final int calorieBurnRate = 0;
+  private final int calorieBurnRate = 1;
 
   public double getHeartRate() {
     return this.heartRate;

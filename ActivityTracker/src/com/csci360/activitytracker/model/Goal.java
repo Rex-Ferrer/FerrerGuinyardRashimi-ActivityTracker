@@ -6,7 +6,7 @@ public class Goal {
   private int current;
   private boolean goalMet;
 
-  Goal(int goal, int current) {
+  public Goal(int goal, int current) {
     this.goal = goal;
     this.current = current;
     this.goalMet = goal == current;

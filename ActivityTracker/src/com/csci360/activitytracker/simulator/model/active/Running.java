@@ -4,7 +4,7 @@ public class Running implements MovingState {
 
   private final double heartRate;
   private final int stepSpeed = 6; //per second
-  private final int calorieBurnRate = 0;
+  private final int calorieBurnRate = 6;
 
   public Running(int age) {
     this.heartRate = (220 - age) * .60;
