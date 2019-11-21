@@ -64,7 +64,7 @@ public class CaloriesViewController implements Initializable  {
         setGoal(goal);
         double total = (double) calories/goal;
         System.out.println(total);
-       caloriesText.setText(calories + " / " + goal + " calories burned" );
+       caloriesText.setText(calories + " / " + goal + " calories" );
         caloriesBar.setProgress(total);
     }
     
@@ -98,6 +98,8 @@ public class CaloriesViewController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	    System.out.println(Thread.currentThread().getName() +"returned");
 	}
 
 }

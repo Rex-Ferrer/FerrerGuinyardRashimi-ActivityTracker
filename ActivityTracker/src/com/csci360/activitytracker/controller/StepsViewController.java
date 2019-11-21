@@ -1,7 +1,10 @@
 package com.csci360.activitytracker.controller;
 
 import com.csci360.activitytracker.MainApp;
+import com.csci360.activitytracker.model.Steps;
 import com.csci360.activitytracker.simulator.HumanSimulationThread;
+import com.csci360.activitytracker.simulator.model.BodyState;
+import com.csci360.activitytracker.simulator.model.Person;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,22 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 //TODO Generate steps and push to view. Program arc to show goals.
-/**
- * @author meena
- *
- */
-/**
- * @author meena
- *
- */
-/**
- * @author meena
- *
- */
-/**
- * @author meena
- *
- */
+
 public class StepsViewController implements Initializable  {
 	@FXML
 	private AnchorPane complete;
@@ -44,7 +32,7 @@ public class StepsViewController implements Initializable  {
 	private ImageView image;
     private Parent root;
     private Stage stage;
-	private HumanSimulationThread dailyActivities;
+	private HumanSimulationThread dailyActivities = new HumanSimulationThread();
 
   @FXML
   ProgressBar stepsBar;
@@ -53,6 +41,7 @@ public class StepsViewController implements Initializable  {
 
   
   private Integer userGoal;
+  private Steps step = new Steps();
   private Integer steps;
   
  
@@ -74,6 +63,8 @@ public void setGoal(int goal){
       setGoal(goal);
       double total = (double) steps/goal;
       System.out.println(total);
+      
+      
       stepsText.setText(steps + " / " + goal + " steps");
       stepsBar.setProgress(total);
   }
@@ -89,7 +80,9 @@ public void setGoal(int goal){
     Scene scene = new Scene(complete);
     stage.setScene(scene);
     stage.show();
+   
 
+    
   }
  
 	  

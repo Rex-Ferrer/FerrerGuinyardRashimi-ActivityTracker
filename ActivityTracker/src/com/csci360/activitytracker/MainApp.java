@@ -13,13 +13,13 @@ public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private AnchorPane rootLayout;
-	private HumanSimulationThread dailyActivities;
+	private static HumanSimulationThread dailyActivities;
 	// Default Constructor
 	public MainApp() {
 	};
 
 	@Override
-	public void start(Stage primaryStage) throws IOException {
+	public void start(Stage primaryStage) throws IOException,Exception {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Activity Tracker");
 
@@ -44,15 +44,19 @@ public class MainApp extends Application {
 			MainViewController controller = loader.getController();
 			// controller.setMainApp(this);
 
-			
-			dailyActivities.getInstance();
-			dailyActivities.start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
+		HumanSimulationThread dailyActivities = new HumanSimulationThread();
+		dailyActivities.getInstance();
+		dailyActivities.startSimulation();
+	    System.out.println(Thread.currentThread().getName() +"returned");
+
 		launch(args);
+
+
 	}
 }

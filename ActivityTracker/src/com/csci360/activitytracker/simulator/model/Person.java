@@ -7,11 +7,11 @@ public class Person {
   private Activities schedule;
   private int defaultAge = 21;
 
-  private Person() {
+  public Person() {
     this.schedule = new Activities(getDefaultAge());
   }
 
-  public synchronized Person getInstance() {
+  public static Person getInstance() {
     if (person == null) {
       person = new Person();
     }
