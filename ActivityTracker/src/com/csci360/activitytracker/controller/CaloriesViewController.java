@@ -113,7 +113,8 @@ public class CaloriesViewController implements Initializable  {
 			  @Override public void handle(ActionEvent actionEvent) {
 			  
 			  if(increm<1500) {
-				  increm=increm+3;
+				  int random = (int )(Math.random() * 6 + 1);
+				  increm=increm+random;
 			  }
 			  
 			  caloriesText.setText(String.valueOf(increm) + " / " + userGoal + " calories");

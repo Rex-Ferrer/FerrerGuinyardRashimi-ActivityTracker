@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,15 +43,16 @@ public class StepsViewController implements Initializable {
 
   private HumanSimulationThread dailyActivities = HumanSimulationThread.getInstance();
   private Steps step = new Steps();
-  private Goal stepsGoal = new Goal(0, step.getTotal());
-
+  //private Goal stepsGoal = new Goal(0, step.getTotal());
+  private Integer stepsGoal = 5000;
   /**
    * Set the steps view goal.
    *
    * @param goal
    */
   public void setGoal(int goal) {
-    this.stepsGoal.setGoal(goal);
+    //this.stepsGoal.setGoal(goal);
+	  this.stepsGoal = goal;
   }
 
 
@@ -61,10 +64,10 @@ public class StepsViewController implements Initializable {
   public void displayGoalChangeInput(int goal) {
 
     setGoal(goal);
-    double stepsProgress = (double) step.getTotal() / stepsGoal.getGoal();
+    double stepsProgress = (double) step.getTotal() / stepsGoal;
     System.out.println(stepsProgress);
 
-    stepsText.setText(step.getTotal() + " / " + stepsGoal.getGoal() + " steps");
+    stepsText.setText(step.getTotal() + " / " + stepsGoal + " steps");
     stepsBar.setProgress(stepsProgress);
   }
 
@@ -112,9 +115,34 @@ public class StepsViewController implements Initializable {
     stepsUpdater.play();
   }
 
+  
+  final Timeline daa = new Timeline(
+		  
+		  new KeyFrame(Duration.seconds(0), 
+				  new EventHandler<ActionEvent>() {
+		  int increm=0;
+		  @Override public void handle(ActionEvent actionEvent) {
+		  
+		  if(increm<1500) {
+			  int random = (int )(Math.random() * 100 + 1);
+			  increm=increm+random;
+		  }
+		  
+		  stepsText.setText(String.valueOf(increm) + " / " + stepsGoal + " steps");
+		  
+		  double progress = ((double) increm) / stepsGoal;
+		  System.out.println(progress);
+		  stepsBar.setProgress(progress);
+}}
+		  
+		  ), new KeyFrame(Duration.seconds(1)) );
+  
+  
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
-    //stepsUpdater();
+		daa.setCycleCount(Animation.INDEFINITE); daa.play();
+
+	  //stepsUpdater();
   }
 
 }
