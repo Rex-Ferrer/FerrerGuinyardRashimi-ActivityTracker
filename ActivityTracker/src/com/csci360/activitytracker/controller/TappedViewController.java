@@ -162,35 +162,39 @@ public class TappedViewController implements Initializable  {
 	    stage.setScene(scene);   
 	    stage.show();
 	}
-	final Timeline daa = new Timeline(
+	final Timeline stuff = new Timeline(
 			  
 			  new KeyFrame(Duration.seconds(0), 
 					  new EventHandler<ActionEvent>() {
-			  int increm=1000;
+			  int incremStep=1000;
+			  int incremCal=100;
+			  
 			  @Override public void handle(ActionEvent actionEvent) {
 			  
-			  if(increm<10000000) {
-				  increm=increm+1000;
+			  if(incremStep<10000000) {
+				  incremStep=incremStep+1000;
 			  }
-			  
-			  steps.setText(String.valueOf(increm)); }}
-			  
+			  if(incremCal<10000000) {
+				  incremCal=incremCal+100;
+			  }
+			  steps.setText(String.valueOf(incremStep)); 
+			  calories.setText(String.valueOf(incremCal)); }}
 			  ), new KeyFrame(Duration.seconds(3)) );
-	final Timeline call = new Timeline(
+	
+	final Timeline heart = new Timeline(
 			  
 			  new KeyFrame(Duration.seconds(0), 
 					  new EventHandler<ActionEvent>() {
-			  int increm=100;
+			  int increm=80;
 			  @Override public void handle(ActionEvent actionEvent) {
 			  
-			  if(increm<10000000) {
-				  increm=increm+100;
+			  if(increm<120) {
+				  increm=increm+1;
 			  }
 			  
-			  calories.setText(String.valueOf(increm)); }}
+			  bpm.setText(String.valueOf(increm)+" bpm"); }}
 			  
-			  ), new KeyFrame(Duration.seconds(3)) );
-			  	          
+			  ), new KeyFrame(Duration.seconds(2)) );	  	          
 	
 	/**
 	 * Start clock and date
@@ -198,8 +202,9 @@ public class TappedViewController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		daa.setCycleCount(Animation.INDEFINITE); daa.play();
-		call.setCycleCount(Animation.INDEFINITE); call.play();
+		stuff.setCycleCount(Animation.INDEFINITE); stuff.play();
+		//call.setCycleCount(Animation.INDEFINITE); call.play();
+		heart.setCycleCount(Animation.INDEFINITE); heart.play();
 		try {
       DigitalClock();
 
